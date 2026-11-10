@@ -1,0 +1,2658 @@
+{
+  "project": "LeafGuard",
+  "research_question": "Does heterogeneous MobileNetV3 + DeiT-Tiny feature fusion improve robustness/generalization from controlled PlantVillage images to more realistic field imagery, and can Grad-CAM++ provide useful visual explanations?",
+  "dataset": {
+    "plantvillage_split_counts_reported": {
+      "train": 7647,
+      "validation": 845,
+      "test": 2054
+    },
+    "plantvillage_classes": [
+      "Apple___Apple_scab",
+      "Apple___Black_rot",
+      "Corn_(maize)___Common_rust_",
+      "Grape___Black_rot",
+      "Grape___healthy",
+      "Potato___Early_blight",
+      "Potato___Late_blight",
+      "Tomato___Early_blight",
+      "Tomato___Late_blight",
+      "Tomato___healthy"
+    ],
+    "external_dataset": "PlantDoc",
+    "external_images": 83,
+    "external_classes": [
+      "Apple___Apple_scab",
+      "Corn_(maize)___Common_rust_",
+      "Grape___Black_rot",
+      "Grape___healthy",
+      "Potato___Early_blight",
+      "Potato___Late_blight",
+      "Tomato___Early_blight",
+      "Tomato___Late_blight",
+      "Tomato___healthy"
+    ],
+    "external_evaluation_completed": true,
+    "external_source": "https://github.com/pratikkayal/PlantDoc-Dataset",
+    "external_license": "CC BY 4.0 (verify upstream LICENSE.txt and cite Singh et al., 2020)",
+    "external_source_commit": "5467f6012d78d1c446145d5f582da6096f852ae8",
+    "external_source_test_images": 236,
+    "external_mapped_bytes": 20510778,
+    "external_mapped_class_counts": {
+      "Apple___Apple_scab": 10,
+      "Corn_(maize)___Common_rust_": 10,
+      "Grape___Black_rot": 8,
+      "Grape___healthy": 12,
+      "Potato___Early_blight": 8,
+      "Potato___Late_blight": 8,
+      "Tomato___Early_blight": 9,
+      "Tomato___Late_blight": 10,
+      "Tomato___healthy": 8
+    }
+  },
+  "plantvillage_verified_results": {
+    "mobilenet": {
+      "accuracy": 0.9951314508276533,
+      "precision_macro": 0.9967382282342913,
+      "recall_macro": 0.9952029566786935,
+      "f1_macro": 0.9959522060927173,
+      "correct": 2044,
+      "total": 2054
+    },
+    "mobilenet_clahe": {
+      "accuracy": 0.9956183057448881,
+      "precision_macro": 0.9960796995561054,
+      "recall_macro": 0.9961210813213466,
+      "f1_macro": 0.9960891558649081,
+      "correct": 2045,
+      "total": 2054
+    },
+    "deit_tiny": {
+      "accuracy": 0.9965920155793574,
+      "precision_macro": 0.9974022156668892,
+      "recall_macro": 0.9969228901565014,
+      "f1_macro": 0.9971546442614466,
+      "correct": 2047,
+      "total": 2054
+    },
+    "hybrid": {
+      "accuracy": 0.9965920155793574,
+      "precision_macro": 0.9981675392670157,
+      "recall_macro": 0.9967178587099605,
+      "f1_macro": 0.9974203401610986,
+      "correct": 2047,
+      "total": 2054
+    }
+  },
+  "plantvillage_full_results": {
+    "mobilenet": {
+      "model": "MobileNetV3-Small",
+      "checkpoint": "models\\mobilenet_v3_best.pth",
+      "dataset": "PlantVillage held-out test split",
+      "preprocessing": {
+        "image_size": [
+          224,
+          224
+        ],
+        "clahe": false,
+        "clahe_clip_limit": null,
+        "clahe_tile_grid_size": null
+      },
+      "metrics": {
+        "accuracy": 0.9951314508276533,
+        "precision_macro": 0.9967382282342913,
+        "recall_macro": 0.9952029566786935,
+        "f1_macro": 0.9959522060927173,
+        "correct": 2044,
+        "total": 2054
+      },
+      "per_class": {
+        "Apple___Apple_scab": {
+          "precision": 1.0,
+          "recall": 0.9921259842519685,
+          "f1-score": 0.9960474308300395,
+          "support": 127.0
+        },
+        "Apple___Black_rot": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 146.0
+        },
+        "Corn_(maize)___Common_rust_": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 217.0
+        },
+        "Grape___Black_rot": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 168.0
+        },
+        "Grape___healthy": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 100.0
+        },
+        "Potato___Early_blight": {
+          "precision": 1.0,
+          "recall": 0.9939024390243902,
+          "f1-score": 0.9969418960244648,
+          "support": 164.0
+        },
+        "Potato___Late_blight": {
+          "precision": 0.9903846153846154,
+          "recall": 0.9716981132075472,
+          "f1-score": 0.9809523809523809,
+          "support": 212.0
+        },
+        "Tomato___Early_blight": {
+          "precision": 0.9953703703703703,
+          "recall": 1.0,
+          "f1-score": 0.9976798143851509,
+          "support": 215.0
+        },
+        "Tomato___Late_blight": {
+          "precision": 0.9816272965879265,
+          "recall": 0.9973333333333333,
+          "f1-score": 0.9894179894179894,
+          "support": 375.0
+        },
+        "Tomato___healthy": {
+          "precision": 1.0,
+          "recall": 0.996969696969697,
+          "f1-score": 0.9984825493171472,
+          "support": 330.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          126,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          146,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          217,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          168,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          100,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          163,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          206,
+          0,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          215,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          374,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          329
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "Apple___Apple_scab",
+        "Apple___Black_rot",
+        "Corn_(maize)___Common_rust_",
+        "Grape___Black_rot",
+        "Grape___healthy",
+        "Potato___Early_blight",
+        "Potato___Late_blight",
+        "Tomato___Early_blight",
+        "Tomato___Late_blight",
+        "Tomato___healthy"
+      ]
+    },
+    "mobilenet_clahe": {
+      "model": "MobileNetV3-Small + CLAHE",
+      "checkpoint": "models\\mobilenet_v3_clahe_best.pth",
+      "dataset": "PlantVillage held-out test split",
+      "preprocessing": {
+        "image_size": [
+          224,
+          224
+        ],
+        "clahe": true,
+        "clahe_clip_limit": 2.0,
+        "clahe_tile_grid_size": [
+          8,
+          8
+        ]
+      },
+      "metrics": {
+        "accuracy": 0.9956183057448881,
+        "precision_macro": 0.9960796995561054,
+        "recall_macro": 0.9961210813213466,
+        "f1_macro": 0.9960891558649081,
+        "correct": 2045,
+        "total": 2054
+      },
+      "per_class": {
+        "Apple___Apple_scab": {
+          "precision": 1.0,
+          "recall": 0.9921259842519685,
+          "f1-score": 0.9960474308300395,
+          "support": 127.0
+        },
+        "Apple___Black_rot": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 146.0
+        },
+        "Corn_(maize)___Common_rust_": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 217.0
+        },
+        "Grape___Black_rot": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 168.0
+        },
+        "Grape___healthy": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 100.0
+        },
+        "Potato___Early_blight": {
+          "precision": 0.9939024390243902,
+          "recall": 0.9939024390243902,
+          "f1-score": 0.9939024390243902,
+          "support": 164.0
+        },
+        "Potato___Late_blight": {
+          "precision": 0.990521327014218,
+          "recall": 0.9858490566037735,
+          "f1-score": 0.9881796690307328,
+          "support": 212.0
+        },
+        "Tomato___Early_blight": {
+          "precision": 0.9817351598173516,
+          "recall": 1.0,
+          "f1-score": 0.9907834101382489,
+          "support": 215.0
+        },
+        "Tomato___Late_blight": {
+          "precision": 0.9946380697050938,
+          "recall": 0.9893333333333333,
+          "f1-score": 0.9919786096256684,
+          "support": 375.0
+        },
+        "Tomato___healthy": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 330.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          126,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          146,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          217,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          168,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          100,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          163,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          209,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          215,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          371,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          330
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "Apple___Apple_scab",
+        "Apple___Black_rot",
+        "Corn_(maize)___Common_rust_",
+        "Grape___Black_rot",
+        "Grape___healthy",
+        "Potato___Early_blight",
+        "Potato___Late_blight",
+        "Tomato___Early_blight",
+        "Tomato___Late_blight",
+        "Tomato___healthy"
+      ]
+    },
+    "deit_tiny": {
+      "model": "DeiT-Tiny",
+      "checkpoint": "models\\deit_tiny_best.pth",
+      "dataset": "PlantVillage held-out test split",
+      "preprocessing": {
+        "image_size": [
+          224,
+          224
+        ],
+        "clahe": false,
+        "clahe_clip_limit": null,
+        "clahe_tile_grid_size": null
+      },
+      "metrics": {
+        "accuracy": 0.9965920155793574,
+        "precision_macro": 0.9974022156668892,
+        "recall_macro": 0.9969228901565014,
+        "f1_macro": 0.9971546442614466,
+        "correct": 2047,
+        "total": 2054
+      },
+      "per_class": {
+        "Apple___Apple_scab": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 127.0
+        },
+        "Apple___Black_rot": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 146.0
+        },
+        "Corn_(maize)___Common_rust_": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 217.0
+        },
+        "Grape___Black_rot": {
+          "precision": 0.9940828402366864,
+          "recall": 1.0,
+          "f1-score": 0.9970326409495549,
+          "support": 168.0
+        },
+        "Grape___healthy": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 100.0
+        },
+        "Potato___Early_blight": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 164.0
+        },
+        "Potato___Late_blight": {
+          "precision": 0.990521327014218,
+          "recall": 0.9858490566037735,
+          "f1-score": 0.9881796690307328,
+          "support": 212.0
+        },
+        "Tomato___Early_blight": {
+          "precision": 1.0,
+          "recall": 0.986046511627907,
+          "f1-score": 0.9929742388758782,
+          "support": 215.0
+        },
+        "Tomato___Late_blight": {
+          "precision": 0.9894179894179894,
+          "recall": 0.9973333333333333,
+          "f1-score": 0.9933598937583001,
+          "support": 375.0
+        },
+        "Tomato___healthy": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 330.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          127,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          146,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          217,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          168,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          100,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          164,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          209,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          212,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          374,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          330
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "Apple___Apple_scab",
+        "Apple___Black_rot",
+        "Corn_(maize)___Common_rust_",
+        "Grape___Black_rot",
+        "Grape___healthy",
+        "Potato___Early_blight",
+        "Potato___Late_blight",
+        "Tomato___Early_blight",
+        "Tomato___Late_blight",
+        "Tomato___healthy"
+      ]
+    },
+    "hybrid": {
+      "model": "MobileNetV3-Small + DeiT-Tiny Hybrid",
+      "checkpoint": "models\\hybrid_best.pth",
+      "dataset": "PlantVillage held-out test split",
+      "preprocessing": {
+        "image_size": [
+          224,
+          224
+        ],
+        "clahe": false,
+        "clahe_clip_limit": null,
+        "clahe_tile_grid_size": null
+      },
+      "metrics": {
+        "accuracy": 0.9965920155793574,
+        "precision_macro": 0.9981675392670157,
+        "recall_macro": 0.9967178587099605,
+        "f1_macro": 0.9974203401610986,
+        "correct": 2047,
+        "total": 2054
+      },
+      "per_class": {
+        "Apple___Apple_scab": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 127.0
+        },
+        "Apple___Black_rot": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 146.0
+        },
+        "Corn_(maize)___Common_rust_": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 217.0
+        },
+        "Grape___Black_rot": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 168.0
+        },
+        "Grape___healthy": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 100.0
+        },
+        "Potato___Early_blight": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 164.0
+        },
+        "Potato___Late_blight": {
+          "precision": 1.0,
+          "recall": 0.9811320754716981,
+          "f1-score": 0.9904761904761905,
+          "support": 212.0
+        },
+        "Tomato___Early_blight": {
+          "precision": 1.0,
+          "recall": 0.986046511627907,
+          "f1-score": 0.9929742388758782,
+          "support": 215.0
+        },
+        "Tomato___Late_blight": {
+          "precision": 0.981675392670157,
+          "recall": 1.0,
+          "f1-score": 0.9907529722589168,
+          "support": 375.0
+        },
+        "Tomato___healthy": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 330.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          127,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          146,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          217,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          168,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          100,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          164,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          208,
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          212,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          375,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          330
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "Apple___Apple_scab",
+        "Apple___Black_rot",
+        "Corn_(maize)___Common_rust_",
+        "Grape___Black_rot",
+        "Grape___healthy",
+        "Potato___Early_blight",
+        "Potato___Late_blight",
+        "Tomato___Early_blight",
+        "Tomato___Late_blight",
+        "Tomato___healthy"
+      ]
+    }
+  },
+  "saved_vs_verified_consistency": {
+    "mobilenet": {
+      "accuracy": {
+        "saved": 0.9951314508276533,
+        "verified": 0.9951314508276533,
+        "matches_within_1e-6": true
+      },
+      "precision_macro": {
+        "saved": 0.9967382282342913,
+        "verified": 0.9967382282342913,
+        "matches_within_1e-6": true
+      },
+      "recall_macro": {
+        "saved": 0.9952029566786935,
+        "verified": 0.9952029566786935,
+        "matches_within_1e-6": true
+      },
+      "f1_macro": {
+        "saved": 0.9959522060927173,
+        "verified": 0.9959522060927173,
+        "matches_within_1e-6": true
+      }
+    },
+    "mobilenet_clahe": {
+      "accuracy": {
+        "saved": 0.9956183057448881,
+        "verified": 0.9956183057448881,
+        "matches_within_1e-6": true
+      },
+      "precision_macro": {
+        "saved": 0.9960796995561054,
+        "verified": 0.9960796995561054,
+        "matches_within_1e-6": true
+      },
+      "recall_macro": {
+        "saved": 0.9961210813213466,
+        "verified": 0.9961210813213466,
+        "matches_within_1e-6": true
+      },
+      "f1_macro": {
+        "saved": 0.9960891558649081,
+        "verified": 0.9960891558649081,
+        "matches_within_1e-6": true
+      }
+    },
+    "deit_tiny": {
+      "accuracy": {
+        "saved": 0.9965920155793574,
+        "verified": 0.9965920155793574,
+        "matches_within_1e-6": true
+      },
+      "precision_macro": {
+        "saved": 0.9974022156668892,
+        "verified": 0.9974022156668892,
+        "matches_within_1e-6": true
+      },
+      "recall_macro": {
+        "saved": 0.9969228901565014,
+        "verified": 0.9969228901565014,
+        "matches_within_1e-6": true
+      },
+      "f1_macro": {
+        "saved": 0.9971546442614466,
+        "verified": 0.9971546442614466,
+        "matches_within_1e-6": true
+      }
+    },
+    "hybrid": {
+      "accuracy": {
+        "saved": 0.9965920155793574,
+        "verified": 0.9965920155793574,
+        "matches_within_1e-6": true
+      },
+      "precision_macro": {
+        "saved": 0.9981675392670157,
+        "verified": 0.9981675392670157,
+        "matches_within_1e-6": true
+      },
+      "recall_macro": {
+        "saved": 0.9967178587099605,
+        "verified": 0.9967178587099605,
+        "matches_within_1e-6": true
+      },
+      "f1_macro": {
+        "saved": 0.9974203401610986,
+        "verified": 0.9974203401610986,
+        "matches_within_1e-6": true
+      }
+    }
+  },
+  "resource_measurements": {
+    "mobilenet": {
+      "parameter_count": 1528106,
+      "checkpoint_size_bytes": 18599019,
+      "checkpoint_size_mib": 17.737,
+      "inference_latency_ms_batch1": 6.882986450195313,
+      "latency_trials_ms_batch1": [
+        7.910485331217448,
+        6.878617350260416,
+        6.882986450195313
+      ],
+      "latency_trial_cv": 0.06719251179836393,
+      "latency_method": "Median of three 60-forward batches after eight warmups; CUDA events on GPU or perf_counter on CPU; model forward only, excluding decode and image preprocessing.",
+      "latency_device": "cuda",
+      "approximate_flops_batch1": 110995576,
+      "flops_note": "Profiler-based approximate count; unsupported operators are omitted."
+    },
+    "mobilenet_clahe": {
+      "parameter_count": 1528106,
+      "checkpoint_size_bytes": 18603267,
+      "checkpoint_size_mib": 17.741,
+      "inference_latency_ms_batch1": 7.824138895670573,
+      "latency_trials_ms_batch1": [
+        8.239348347981771,
+        7.361571248372396,
+        7.824138895670573
+      ],
+      "latency_trial_cv": 0.04591554937834407,
+      "latency_method": "Median of three 60-forward batches after eight warmups; CUDA events on GPU or perf_counter on CPU; model forward only, excluding decode and image preprocessing.",
+      "latency_device": "cuda",
+      "approximate_flops_batch1": 110995576,
+      "flops_note": "Profiler-based approximate count; unsupported operators are omitted."
+    },
+    "deit_tiny": {
+      "parameter_count": 5526346,
+      "checkpoint_size_bytes": 22167777,
+      "checkpoint_size_mib": 21.141,
+      "inference_latency_ms_batch1": 7.896128845214844,
+      "latency_trials_ms_batch1": [
+        7.896128845214844,
+        7.631113688151042,
+        8.110749308268229
+      ],
+      "latency_trial_cv": 0.024896831141964355,
+      "latency_method": "Median of three 60-forward batches after eight warmups; CUDA events on GPU or perf_counter on CPU; model forward only, excluding decode and image preprocessing.",
+      "latency_device": "cuda",
+      "approximate_flops_batch1": 2150268096,
+      "flops_note": "Profiler-based approximate count; unsupported operators are omitted."
+    },
+    "hybrid": {
+      "parameter_count": 6980586,
+      "checkpoint_size_bytes": 28132099,
+      "checkpoint_size_mib": 26.829,
+      "inference_latency_ms_batch1": 15.740508015950521,
+      "latency_trials_ms_batch1": [
+        15.852401733398438,
+        15.618404134114583,
+        15.740508015950521
+      ],
+      "latency_trial_cv": 0.006072236933780809,
+      "latency_method": "Median of three 60-forward batches after eight warmups; CUDA events on GPU or perf_counter on CPU; model forward only, excluding decode and image preprocessing.",
+      "latency_device": "cuda",
+      "approximate_flops_batch1": 2261113400,
+      "flops_note": "Profiler-based approximate count; unsupported operators are omitted."
+    }
+  },
+  "runtime": {
+    "device": "cuda",
+    "gpu_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "torch_version": "2.11.0+cu128",
+    "cuda_version": "12.8",
+    "resource_latency_warmup_iterations": 8,
+    "resource_latency_measurement_iterations": 60,
+    "resource_latency_measurement_repeats": 3
+  },
+  "model_integrity": {
+    "status": "verified",
+    "path": "C:\\LeafGuard\\models\\hybrid_best.pth",
+    "actual_sha256": "116be826ae3ccb601de4a7259ca06ed137c6f413879edc5e9438e9a9f25abb00",
+    "expected_sha256": "116be826ae3ccb601de4a7259ca06ed137c6f413879edc5e9438e9a9f25abb00",
+    "matches": true
+  },
+  "explainability": {
+    "method": "Grad-CAM++ for MobileNet final convolution and DeiT final-block norm1 patch tokens; branch maps are separately normalized and averaged.",
+    "examples": {
+      "device": "cuda",
+      "examples": {
+        "plantvillage_correct": {
+          "source_image": "C:\\LeafGuard\\data\\processed\\test\\Grape___healthy\\1f9ead63-93e5-4379-885b-b2b57352202b___Mt.N.V_HL 8938.JPG",
+          "true_class": "Grape___healthy",
+          "predicted_class": "Grape___healthy",
+          "correct": true,
+          "confidence": 0.9999759197235107,
+          "top_3": [
+            {
+              "class": "Grape___healthy",
+              "confidence": 0.9999759197235107
+            },
+            {
+              "class": "Tomato___healthy",
+              "confidence": 5.107739525556099e-06
+            },
+            {
+              "class": "Apple___Apple_scab",
+              "confidence": 4.967203949490795e-06
+            }
+          ],
+          "example_selection": "plantvillage_correct",
+          "method": "Grad-CAM++ on MobileNet final convolution and DeiT final-block norm1 patch tokens; separately normalized branch maps averaged.",
+          "limit": "Qualitative attribution only; the external dataset does not provide segmentation masks for these classification samples."
+        },
+        "plantvillage_difficult": {
+          "source_image": "C:\\LeafGuard\\data\\processed\\test\\Tomato___Late_blight\\5fe78bd1-bf00-4863-93b9-5dc3ca8fbba4___RS_Late.B 5444.JPG",
+          "true_class": "Tomato___Late_blight",
+          "predicted_class": "Tomato___Late_blight",
+          "correct": true,
+          "confidence": 0.5676417350769043,
+          "top_3": [
+            {
+              "class": "Tomato___Late_blight",
+              "confidence": 0.5676417350769043
+            },
+            {
+              "class": "Tomato___Early_blight",
+              "confidence": 0.4231894314289093
+            },
+            {
+              "class": "Potato___Late_blight",
+              "confidence": 0.0034230761229991913
+            }
+          ],
+          "example_selection": "plantvillage_difficult",
+          "method": "Grad-CAM++ on MobileNet final convolution and DeiT final-block norm1 patch tokens; separately normalized branch maps averaged.",
+          "limit": "Qualitative attribution only; the external dataset does not provide segmentation masks for these classification samples."
+        },
+        "plantvillage_failure": {
+          "source_image": "C:\\LeafGuard\\data\\processed\\test\\Potato___Late_blight\\93d91b96-e024-477c-9b76-796e3f1614d4___RS_LB 3297.JPG",
+          "true_class": "Potato___Late_blight",
+          "predicted_class": "Tomato___Late_blight",
+          "correct": false,
+          "confidence": 0.9965169429779053,
+          "top_3": [
+            {
+              "class": "Tomato___Late_blight",
+              "confidence": 0.9965169429779053
+            },
+            {
+              "class": "Potato___Late_blight",
+              "confidence": 0.0011826500995084643
+            },
+            {
+              "class": "Potato___Early_blight",
+              "confidence": 0.0005013265763409436
+            }
+          ],
+          "example_selection": "plantvillage_failure",
+          "method": "Grad-CAM++ on MobileNet final convolution and DeiT final-block norm1 patch tokens; separately normalized branch maps averaged.",
+          "limit": "Qualitative attribution only; the external dataset does not provide segmentation masks for these classification samples."
+        },
+        "plantdoc_correct": {
+          "source_image": "C:\\LeafGuard\\data\\external\\plantdoc_prepared\\test\\Grape___healthy\\Grape___healthy__plantdoc_0078.jpg",
+          "true_class": "Grape___healthy",
+          "predicted_class": "Grape___healthy",
+          "correct": true,
+          "confidence": 0.9996209144592285,
+          "top_3": [
+            {
+              "class": "Grape___healthy",
+              "confidence": 0.9996209144592285
+            },
+            {
+              "class": "Tomato___healthy",
+              "confidence": 0.00014231221575755626
+            },
+            {
+              "class": "Grape___Black_rot",
+              "confidence": 8.306010568048805e-05
+            }
+          ],
+          "example_selection": "plantdoc_correct",
+          "method": "Grad-CAM++ on MobileNet final convolution and DeiT final-block norm1 patch tokens; separately normalized branch maps averaged.",
+          "limit": "Qualitative attribution only; the external dataset does not provide segmentation masks for these classification samples."
+        },
+        "plantdoc_failure": {
+          "source_image": "C:\\LeafGuard\\data\\external\\plantdoc_prepared\\test\\Potato___Late_blight\\Potato___Late_blight__plantdoc_0036.jpg",
+          "true_class": "Potato___Late_blight",
+          "predicted_class": "Tomato___Late_blight",
+          "correct": false,
+          "confidence": 0.9962558746337891,
+          "top_3": [
+            {
+              "class": "Tomato___Late_blight",
+              "confidence": 0.9962558746337891
+            },
+            {
+              "class": "Tomato___Early_blight",
+              "confidence": 0.000801235786639154
+            },
+            {
+              "class": "Grape___Black_rot",
+              "confidence": 0.0006484840414486825
+            }
+          ],
+          "example_selection": "plantdoc_failure",
+          "method": "Grad-CAM++ on MobileNet final convolution and DeiT final-block norm1 patch tokens; separately normalized branch maps averaged.",
+          "limit": "Qualitative attribution only; the external dataset does not provide segmentation masks for these classification samples."
+        }
+      },
+      "external_dataset_available": true,
+      "external_images": 83
+    },
+    "quantitative_localization": "Not measured: the evaluated cropped classification images have no verified paired region annotations. The separate PlantDoc object-detection release has leaf boxes, but no image correspondence to this pinned classification test subset was established; those boxes are not disease-lesion masks."
+  },
+  "model_comparison": [
+    {
+      "model_key": "mobilenet",
+      "model": "MobileNetV3-Small",
+      "plantvillage": {
+        "accuracy": 0.9951314508276533,
+        "precision_macro": 0.9967382282342913,
+        "recall_macro": 0.9952029566786935,
+        "f1_macro": 0.9959522060927173,
+        "correct": 2044,
+        "total": 2054
+      },
+      "plantvillage_mapped_overlap": {
+        "class_count": 9,
+        "class_names": [
+          "Apple___Apple_scab",
+          "Corn_(maize)___Common_rust_",
+          "Grape___Black_rot",
+          "Grape___healthy",
+          "Potato___Early_blight",
+          "Potato___Late_blight",
+          "Tomato___Early_blight",
+          "Tomato___Late_blight",
+          "Tomato___healthy"
+        ],
+        "total": 1908,
+        "accuracy": 0.9947589098532494,
+        "precision_macro": 0.9963758091492125,
+        "recall_macro": 0.994669951865215,
+        "f1_macro": 0.9955024512141303,
+        "per_class": {
+          "Apple___Apple_scab": {
+            "precision": 1.0,
+            "recall": 0.9921259842519685,
+            "f1-score": 0.9960474308300395,
+            "support": 127
+          },
+          "Corn_(maize)___Common_rust_": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 217
+          },
+          "Grape___Black_rot": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 168
+          },
+          "Grape___healthy": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 100
+          },
+          "Potato___Early_blight": {
+            "precision": 1.0,
+            "recall": 0.9939024390243902,
+            "f1-score": 0.9969418960244648,
+            "support": 164
+          },
+          "Potato___Late_blight": {
+            "precision": 0.9903846153846154,
+            "recall": 0.9716981132075472,
+            "f1-score": 0.9809523809523809,
+            "support": 212
+          },
+          "Tomato___Early_blight": {
+            "precision": 0.9953703703703703,
+            "recall": 1.0,
+            "f1-score": 0.9976798143851509,
+            "support": 215
+          },
+          "Tomato___Late_blight": {
+            "precision": 0.9816272965879265,
+            "recall": 0.9973333333333333,
+            "f1-score": 0.9894179894179893,
+            "support": 375
+          },
+          "Tomato___healthy": {
+            "precision": 1.0,
+            "recall": 0.996969696969697,
+            "f1-score": 0.9984825493171471,
+            "support": 330
+          }
+        }
+      },
+      "external": {
+        "accuracy": 0.4939759036144578,
+        "precision_macro": 0.6445383627546816,
+        "recall_macro": 0.4691358024691357,
+        "f1_macro": 0.4231958245508381,
+        "correct": 41,
+        "total": 83,
+        "total_inference_seconds": 1.4627509000129066
+      },
+      "domain_gap": {
+        "accuracy": 0.5007830062387917,
+        "macro_f1": 0.5723066266632921
+      },
+      "parameter_count": 1528106,
+      "checkpoint_size_bytes": 18599019,
+      "checkpoint_size_mib": 17.737,
+      "inference_latency_ms_batch1": 6.882986450195313,
+      "latency_trials_ms_batch1": [
+        7.910485331217448,
+        6.878617350260416,
+        6.882986450195313
+      ],
+      "latency_trial_cv": 0.06719251179836393,
+      "latency_method": "Median of three 60-forward batches after eight warmups; CUDA events on GPU or perf_counter on CPU; model forward only, excluding decode and image preprocessing.",
+      "latency_device": "cuda",
+      "approximate_flops_batch1": 110995576,
+      "flops_note": "Profiler-based approximate count; unsupported operators are omitted."
+    },
+    {
+      "model_key": "mobilenet_clahe",
+      "model": "MobileNetV3-Small + CLAHE",
+      "plantvillage": {
+        "accuracy": 0.9956183057448881,
+        "precision_macro": 0.9960796995561054,
+        "recall_macro": 0.9961210813213466,
+        "f1_macro": 0.9960891558649081,
+        "correct": 2045,
+        "total": 2054
+      },
+      "plantvillage_mapped_overlap": {
+        "class_count": 9,
+        "class_names": [
+          "Apple___Apple_scab",
+          "Corn_(maize)___Common_rust_",
+          "Grape___Black_rot",
+          "Grape___healthy",
+          "Potato___Early_blight",
+          "Potato___Late_blight",
+          "Tomato___Early_blight",
+          "Tomato___Late_blight",
+          "Tomato___healthy"
+        ],
+        "total": 1908,
+        "accuracy": 0.9952830188679245,
+        "precision_macro": 0.9956441106178949,
+        "recall_macro": 0.9956900903570518,
+        "f1_macro": 0.9956546176276757,
+        "per_class": {
+          "Apple___Apple_scab": {
+            "precision": 1.0,
+            "recall": 0.9921259842519685,
+            "f1-score": 0.9960474308300395,
+            "support": 127
+          },
+          "Corn_(maize)___Common_rust_": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 217
+          },
+          "Grape___Black_rot": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 168
+          },
+          "Grape___healthy": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 100
+          },
+          "Potato___Early_blight": {
+            "precision": 0.9939024390243902,
+            "recall": 0.9939024390243902,
+            "f1-score": 0.9939024390243902,
+            "support": 164
+          },
+          "Potato___Late_blight": {
+            "precision": 0.990521327014218,
+            "recall": 0.9858490566037735,
+            "f1-score": 0.9881796690307328,
+            "support": 212
+          },
+          "Tomato___Early_blight": {
+            "precision": 0.9817351598173516,
+            "recall": 1.0,
+            "f1-score": 0.9907834101382489,
+            "support": 215
+          },
+          "Tomato___Late_blight": {
+            "precision": 0.9946380697050938,
+            "recall": 0.9893333333333333,
+            "f1-score": 0.9919786096256684,
+            "support": 375
+          },
+          "Tomato___healthy": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 330
+          }
+        }
+      },
+      "external": {
+        "accuracy": 0.40963855421686746,
+        "precision_macro": 0.5826384958812802,
+        "recall_macro": 0.399074074074074,
+        "f1_macro": 0.3882995655353379,
+        "correct": 34,
+        "total": 83,
+        "total_inference_seconds": 1.318546399998013
+      },
+      "domain_gap": {
+        "accuracy": 0.585644464651057,
+        "macro_f1": 0.6073550520923379
+      },
+      "parameter_count": 1528106,
+      "checkpoint_size_bytes": 18603267,
+      "checkpoint_size_mib": 17.741,
+      "inference_latency_ms_batch1": 7.824138895670573,
+      "latency_trials_ms_batch1": [
+        8.239348347981771,
+        7.361571248372396,
+        7.824138895670573
+      ],
+      "latency_trial_cv": 0.04591554937834407,
+      "latency_method": "Median of three 60-forward batches after eight warmups; CUDA events on GPU or perf_counter on CPU; model forward only, excluding decode and image preprocessing.",
+      "latency_device": "cuda",
+      "approximate_flops_batch1": 110995576,
+      "flops_note": "Profiler-based approximate count; unsupported operators are omitted."
+    },
+    {
+      "model_key": "deit_tiny",
+      "model": "DeiT-Tiny",
+      "plantvillage": {
+        "accuracy": 0.9965920155793574,
+        "precision_macro": 0.9974022156668892,
+        "recall_macro": 0.9969228901565014,
+        "f1_macro": 0.9971546442614466,
+        "correct": 2047,
+        "total": 2054
+      },
+      "plantvillage_mapped_overlap": {
+        "class_count": 9,
+        "class_names": [
+          "Apple___Apple_scab",
+          "Corn_(maize)___Common_rust_",
+          "Grape___Black_rot",
+          "Grape___healthy",
+          "Potato___Early_blight",
+          "Potato___Late_blight",
+          "Tomato___Early_blight",
+          "Tomato___Late_blight",
+          "Tomato___healthy"
+        ],
+        "total": 1908,
+        "accuracy": 0.9963312368972747,
+        "precision_macro": 0.9971135729632105,
+        "recall_macro": 0.9965809890627794,
+        "f1_macro": 0.9968384936238296,
+        "per_class": {
+          "Apple___Apple_scab": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 127
+          },
+          "Corn_(maize)___Common_rust_": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 217
+          },
+          "Grape___Black_rot": {
+            "precision": 0.9940828402366864,
+            "recall": 1.0,
+            "f1-score": 0.9970326409495549,
+            "support": 168
+          },
+          "Grape___healthy": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 100
+          },
+          "Potato___Early_blight": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 164
+          },
+          "Potato___Late_blight": {
+            "precision": 0.990521327014218,
+            "recall": 0.9858490566037735,
+            "f1-score": 0.9881796690307328,
+            "support": 212
+          },
+          "Tomato___Early_blight": {
+            "precision": 1.0,
+            "recall": 0.986046511627907,
+            "f1-score": 0.9929742388758782,
+            "support": 215
+          },
+          "Tomato___Late_blight": {
+            "precision": 0.9894179894179894,
+            "recall": 0.9973333333333333,
+            "f1-score": 0.9933598937583001,
+            "support": 375
+          },
+          "Tomato___healthy": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 330
+          }
+        }
+      },
+      "external": {
+        "accuracy": 0.5060240963855421,
+        "precision_macro": 0.5555897646414888,
+        "recall_macro": 0.4799382716049383,
+        "f1_macro": 0.4615118215118215,
+        "correct": 42,
+        "total": 83,
+        "total_inference_seconds": 1.1684965000022203
+      },
+      "domain_gap": {
+        "accuracy": 0.4903071405117325,
+        "macro_f1": 0.535326672112008
+      },
+      "parameter_count": 5526346,
+      "checkpoint_size_bytes": 22167777,
+      "checkpoint_size_mib": 21.141,
+      "inference_latency_ms_batch1": 7.896128845214844,
+      "latency_trials_ms_batch1": [
+        7.896128845214844,
+        7.631113688151042,
+        8.110749308268229
+      ],
+      "latency_trial_cv": 0.024896831141964355,
+      "latency_method": "Median of three 60-forward batches after eight warmups; CUDA events on GPU or perf_counter on CPU; model forward only, excluding decode and image preprocessing.",
+      "latency_device": "cuda",
+      "approximate_flops_batch1": 2150268096,
+      "flops_note": "Profiler-based approximate count; unsupported operators are omitted."
+    },
+    {
+      "model_key": "hybrid",
+      "model": "MobileNetV3-Small + DeiT-Tiny Hybrid",
+      "plantvillage": {
+        "accuracy": 0.9965920155793574,
+        "precision_macro": 0.9981675392670157,
+        "recall_macro": 0.9967178587099605,
+        "f1_macro": 0.9974203401610986,
+        "correct": 2047,
+        "total": 2054
+      },
+      "plantvillage_mapped_overlap": {
+        "class_count": 9,
+        "class_names": [
+          "Apple___Apple_scab",
+          "Corn_(maize)___Common_rust_",
+          "Grape___Black_rot",
+          "Grape___healthy",
+          "Potato___Early_blight",
+          "Potato___Late_blight",
+          "Tomato___Early_blight",
+          "Tomato___Late_blight",
+          "Tomato___healthy"
+        ],
+        "total": 1908,
+        "accuracy": 0.9963312368972747,
+        "precision_macro": 0.9979639325189064,
+        "recall_macro": 0.9963531763444006,
+        "f1_macro": 0.9971337112901095,
+        "per_class": {
+          "Apple___Apple_scab": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 127
+          },
+          "Corn_(maize)___Common_rust_": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 217
+          },
+          "Grape___Black_rot": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 168
+          },
+          "Grape___healthy": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 100
+          },
+          "Potato___Early_blight": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 164
+          },
+          "Potato___Late_blight": {
+            "precision": 1.0,
+            "recall": 0.9811320754716981,
+            "f1-score": 0.9904761904761905,
+            "support": 212
+          },
+          "Tomato___Early_blight": {
+            "precision": 1.0,
+            "recall": 0.986046511627907,
+            "f1-score": 0.9929742388758782,
+            "support": 215
+          },
+          "Tomato___Late_blight": {
+            "precision": 0.981675392670157,
+            "recall": 1.0,
+            "f1-score": 0.9907529722589168,
+            "support": 375
+          },
+          "Tomato___healthy": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 330
+          }
+        }
+      },
+      "external": {
+        "accuracy": 0.4939759036144578,
+        "precision_macro": 0.5117845117845118,
+        "recall_macro": 0.46172839506172836,
+        "f1_macro": 0.4238594880538615,
+        "correct": 41,
+        "total": 83,
+        "total_inference_seconds": 1.2469793999916874
+      },
+      "domain_gap": {
+        "accuracy": 0.5023553332828168,
+        "macro_f1": 0.573274223236248
+      },
+      "parameter_count": 6980586,
+      "checkpoint_size_bytes": 28132099,
+      "checkpoint_size_mib": 26.829,
+      "inference_latency_ms_batch1": 15.740508015950521,
+      "latency_trials_ms_batch1": [
+        15.852401733398438,
+        15.618404134114583,
+        15.740508015950521
+      ],
+      "latency_trial_cv": 0.006072236933780809,
+      "latency_method": "Median of three 60-forward batches after eight warmups; CUDA events on GPU or perf_counter on CPU; model forward only, excluding decode and image preprocessing.",
+      "latency_device": "cuda",
+      "approximate_flops_batch1": 2261113400,
+      "flops_note": "Profiler-based approximate count; unsupported operators are omitted."
+    }
+  ],
+  "external_results": {
+    "mobilenet": {
+      "model": "MobileNetV3-Small",
+      "model_key": "mobilenet",
+      "checkpoint": "models\\mobilenet_v3_best.pth",
+      "dataset": "PlantDoc official test split, mapped subset",
+      "preprocessing": {
+        "resize": [
+          224,
+          224
+        ],
+        "normalization": "ImageNet mean/std",
+        "clahe": false,
+        "clahe_clip_limit": null,
+        "clahe_tile_grid_size": null
+      },
+      "sample_count": 83,
+      "mapped_classes": [
+        "Apple___Apple_scab",
+        "Corn_(maize)___Common_rust_",
+        "Grape___Black_rot",
+        "Grape___healthy",
+        "Potato___Early_blight",
+        "Potato___Late_blight",
+        "Tomato___Early_blight",
+        "Tomato___Late_blight",
+        "Tomato___healthy"
+      ],
+      "metrics": {
+        "accuracy": 0.4939759036144578,
+        "precision_macro": 0.6445383627546816,
+        "recall_macro": 0.4691358024691357,
+        "f1_macro": 0.4231958245508381,
+        "correct": 41,
+        "total": 83,
+        "total_inference_seconds": 1.4627509000129066
+      },
+      "per_class": {
+        "Apple___Apple_scab": {
+          "precision": 1.0,
+          "recall": 0.2,
+          "f1-score": 0.3333333333333333,
+          "support": 10.0
+        },
+        "Corn_(maize)___Common_rust_": {
+          "precision": 0.5882352941176471,
+          "recall": 1.0,
+          "f1-score": 0.7407407407407407,
+          "support": 10.0
+        },
+        "Grape___Black_rot": {
+          "precision": 0.5,
+          "recall": 0.75,
+          "f1-score": 0.6,
+          "support": 8.0
+        },
+        "Grape___healthy": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1-score": 0.8,
+          "support": 12.0
+        },
+        "Potato___Early_blight": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 8.0
+        },
+        "Potato___Late_blight": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "f1-score": 0.2222222222222222,
+          "support": 8.0
+        },
+        "Tomato___Early_blight": {
+          "precision": 0.45454545454545453,
+          "recall": 0.5555555555555556,
+          "f1-score": 0.5,
+          "support": 9.0
+        },
+        "Tomato___Late_blight": {
+          "precision": 0.25806451612903225,
+          "recall": 0.8,
+          "f1-score": 0.3902439024390244,
+          "support": 10.0
+        },
+        "Tomato___healthy": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "f1-score": 0.2222222222222222,
+          "support": 8.0
+        }
+      },
+      "confusion_matrix_labels": [
+        "Apple___Apple_scab",
+        "Apple___Black_rot",
+        "Corn_(maize)___Common_rust_",
+        "Grape___Black_rot",
+        "Grape___healthy",
+        "Potato___Early_blight",
+        "Potato___Late_blight",
+        "Tomato___Early_blight",
+        "Tomato___Late_blight",
+        "Tomato___healthy"
+      ],
+      "confusion_matrix": [
+        [
+          2,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          5,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          6,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          8,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          2,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          5,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          8,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          2,
+          4,
+          1
+        ]
+      ],
+      "mean_max_softmax_confidence": 0.8868032776447664,
+      "interpretation_note": "Predictions into any of the model's ten output classes are counted as errors when they differ from the mapped PlantDoc ground truth. Macro metrics average only over mapped ground-truth classes."
+    },
+    "mobilenet_clahe": {
+      "model": "MobileNetV3-Small + CLAHE",
+      "model_key": "mobilenet_clahe",
+      "checkpoint": "models\\mobilenet_v3_clahe_best.pth",
+      "dataset": "PlantDoc official test split, mapped subset",
+      "preprocessing": {
+        "resize": [
+          224,
+          224
+        ],
+        "normalization": "ImageNet mean/std",
+        "clahe": true,
+        "clahe_clip_limit": 2.0,
+        "clahe_tile_grid_size": [
+          8,
+          8
+        ]
+      },
+      "sample_count": 83,
+      "mapped_classes": [
+        "Apple___Apple_scab",
+        "Corn_(maize)___Common_rust_",
+        "Grape___Black_rot",
+        "Grape___healthy",
+        "Potato___Early_blight",
+        "Potato___Late_blight",
+        "Tomato___Early_blight",
+        "Tomato___Late_blight",
+        "Tomato___healthy"
+      ],
+      "metrics": {
+        "accuracy": 0.40963855421686746,
+        "precision_macro": 0.5826384958812802,
+        "recall_macro": 0.399074074074074,
+        "f1_macro": 0.3882995655353379,
+        "correct": 34,
+        "total": 83,
+        "total_inference_seconds": 1.318546399998013
+      },
+      "per_class": {
+        "Apple___Apple_scab": {
+          "precision": 0.6,
+          "recall": 0.3,
+          "f1-score": 0.4,
+          "support": 10.0
+        },
+        "Corn_(maize)___Common_rust_": {
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "f1-score": 0.8,
+          "support": 10.0
+        },
+        "Grape___Black_rot": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1-score": 0.6666666666666666,
+          "support": 8.0
+        },
+        "Grape___healthy": {
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1-score": 0.4,
+          "support": 12.0
+        },
+        "Potato___Early_blight": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 8.0
+        },
+        "Potato___Late_blight": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "f1-score": 0.2222222222222222,
+          "support": 8.0
+        },
+        "Tomato___Early_blight": {
+          "precision": 0.3157894736842105,
+          "recall": 0.6666666666666666,
+          "f1-score": 0.42857142857142855,
+          "support": 9.0
+        },
+        "Tomato___Late_blight": {
+          "precision": 0.16129032258064516,
+          "recall": 0.5,
+          "f1-score": 0.24390243902439024,
+          "support": 10.0
+        },
+        "Tomato___healthy": {
+          "precision": 0.5,
+          "recall": 0.25,
+          "f1-score": 0.3333333333333333,
+          "support": 8.0
+        }
+      },
+      "confusion_matrix_labels": [
+        "Apple___Apple_scab",
+        "Apple___Black_rot",
+        "Corn_(maize)___Common_rust_",
+        "Grape___Black_rot",
+        "Grape___healthy",
+        "Potato___Early_blight",
+        "Potato___Late_blight",
+        "Tomato___Early_blight",
+        "Tomato___Late_blight",
+        "Tomato___healthy"
+      ],
+      "confusion_matrix": [
+        [
+          3,
+          0,
+          2,
+          0,
+          0,
+          1,
+          0,
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          2,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          3,
+          0,
+          0,
+          0,
+          7,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          4,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          6,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          6,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          5,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          2
+        ]
+      ],
+      "mean_max_softmax_confidence": 0.8829164242888071,
+      "interpretation_note": "Predictions into any of the model's ten output classes are counted as errors when they differ from the mapped PlantDoc ground truth. Macro metrics average only over mapped ground-truth classes."
+    },
+    "deit_tiny": {
+      "model": "DeiT-Tiny",
+      "model_key": "deit_tiny",
+      "checkpoint": "models\\deit_tiny_best.pth",
+      "dataset": "PlantDoc official test split, mapped subset",
+      "preprocessing": {
+        "resize": [
+          224,
+          224
+        ],
+        "normalization": "ImageNet mean/std",
+        "clahe": false,
+        "clahe_clip_limit": null,
+        "clahe_tile_grid_size": null
+      },
+      "sample_count": 83,
+      "mapped_classes": [
+        "Apple___Apple_scab",
+        "Corn_(maize)___Common_rust_",
+        "Grape___Black_rot",
+        "Grape___healthy",
+        "Potato___Early_blight",
+        "Potato___Late_blight",
+        "Tomato___Early_blight",
+        "Tomato___Late_blight",
+        "Tomato___healthy"
+      ],
+      "metrics": {
+        "accuracy": 0.5060240963855421,
+        "precision_macro": 0.5555897646414888,
+        "recall_macro": 0.4799382716049383,
+        "f1_macro": 0.4615118215118215,
+        "correct": 42,
+        "total": 83,
+        "total_inference_seconds": 1.1684965000022203
+      },
+      "per_class": {
+        "Apple___Apple_scab": {
+          "precision": 0.75,
+          "recall": 0.3,
+          "f1-score": 0.42857142857142855,
+          "support": 10.0
+        },
+        "Corn_(maize)___Common_rust_": {
+          "precision": 0.8333333333333334,
+          "recall": 1.0,
+          "f1-score": 0.9090909090909091,
+          "support": 10.0
+        },
+        "Grape___Black_rot": {
+          "precision": 0.5714285714285714,
+          "recall": 0.5,
+          "f1-score": 0.5333333333333333,
+          "support": 8.0
+        },
+        "Grape___healthy": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1-score": 0.8,
+          "support": 12.0
+        },
+        "Potato___Early_blight": {
+          "precision": 0.6666666666666666,
+          "recall": 0.25,
+          "f1-score": 0.36363636363636365,
+          "support": 8.0
+        },
+        "Potato___Late_blight": {
+          "precision": 0.5,
+          "recall": 0.125,
+          "f1-score": 0.2,
+          "support": 8.0
+        },
+        "Tomato___Early_blight": {
+          "precision": 0.4375,
+          "recall": 0.7777777777777778,
+          "f1-score": 0.56,
+          "support": 9.0
+        },
+        "Tomato___Late_blight": {
+          "precision": 0.2413793103448276,
+          "recall": 0.7,
+          "f1-score": 0.358974358974359,
+          "support": 10.0
+        },
+        "Tomato___healthy": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 8.0
+        }
+      },
+      "confusion_matrix_labels": [
+        "Apple___Apple_scab",
+        "Apple___Black_rot",
+        "Corn_(maize)___Common_rust_",
+        "Grape___Black_rot",
+        "Grape___healthy",
+        "Potato___Early_blight",
+        "Potato___Late_blight",
+        "Tomato___Early_blight",
+        "Tomato___Late_blight",
+        "Tomato___healthy"
+      ],
+      "confusion_matrix": [
+        [
+          3,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          2,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          2,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          8,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          2,
+          0,
+          1,
+          4,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          7,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          7,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          4,
+          0
+        ]
+      ],
+      "mean_max_softmax_confidence": 0.8599941992616079,
+      "interpretation_note": "Predictions into any of the model's ten output classes are counted as errors when they differ from the mapped PlantDoc ground truth. Macro metrics average only over mapped ground-truth classes."
+    },
+    "hybrid": {
+      "model": "MobileNetV3-Small + DeiT-Tiny Hybrid",
+      "model_key": "hybrid",
+      "checkpoint": "models\\hybrid_best.pth",
+      "dataset": "PlantDoc official test split, mapped subset",
+      "preprocessing": {
+        "resize": [
+          224,
+          224
+        ],
+        "normalization": "ImageNet mean/std",
+        "clahe": false,
+        "clahe_clip_limit": null,
+        "clahe_tile_grid_size": null
+      },
+      "sample_count": 83,
+      "mapped_classes": [
+        "Apple___Apple_scab",
+        "Corn_(maize)___Common_rust_",
+        "Grape___Black_rot",
+        "Grape___healthy",
+        "Potato___Early_blight",
+        "Potato___Late_blight",
+        "Tomato___Early_blight",
+        "Tomato___Late_blight",
+        "Tomato___healthy"
+      ],
+      "metrics": {
+        "accuracy": 0.4939759036144578,
+        "precision_macro": 0.5117845117845118,
+        "recall_macro": 0.46172839506172836,
+        "f1_macro": 0.4238594880538615,
+        "correct": 41,
+        "total": 83,
+        "total_inference_seconds": 1.2469793999916874
+      },
+      "per_class": {
+        "Apple___Apple_scab": {
+          "precision": 1.0,
+          "recall": 0.3,
+          "f1-score": 0.46153846153846156,
+          "support": 10.0
+        },
+        "Corn_(maize)___Common_rust_": {
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "f1-score": 0.8,
+          "support": 10.0
+        },
+        "Grape___Black_rot": {
+          "precision": 0.3333333333333333,
+          "recall": 0.5,
+          "f1-score": 0.4,
+          "support": 8.0
+        },
+        "Grape___healthy": {
+          "precision": 0.8181818181818182,
+          "recall": 0.75,
+          "f1-score": 0.782608695652174,
+          "support": 12.0
+        },
+        "Potato___Early_blight": {
+          "precision": 0.5,
+          "recall": 0.125,
+          "f1-score": 0.2,
+          "support": 8.0
+        },
+        "Potato___Late_blight": {
+          "precision": 0.5,
+          "recall": 0.125,
+          "f1-score": 0.2,
+          "support": 8.0
+        },
+        "Tomato___Early_blight": {
+          "precision": 0.45454545454545453,
+          "recall": 0.5555555555555556,
+          "f1-score": 0.5,
+          "support": 9.0
+        },
+        "Tomato___Late_blight": {
+          "precision": 0.3333333333333333,
+          "recall": 0.8,
+          "f1-score": 0.47058823529411764,
+          "support": 10.0
+        },
+        "Tomato___healthy": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 8.0
+        }
+      },
+      "confusion_matrix_labels": [
+        "Apple___Apple_scab",
+        "Apple___Black_rot",
+        "Corn_(maize)___Common_rust_",
+        "Grape___Black_rot",
+        "Grape___healthy",
+        "Potato___Early_blight",
+        "Potato___Late_blight",
+        "Tomato___Early_blight",
+        "Tomato___Late_blight",
+        "Tomato___healthy"
+      ],
+      "confusion_matrix": [
+        [
+          3,
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          1,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          9,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          2,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          2,
+          0,
+          0,
+          0,
+          5,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          8,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0
+        ]
+      ],
+      "mean_max_softmax_confidence": 0.8395804705390011,
+      "interpretation_note": "Predictions into any of the model's ten output classes are counted as errors when they differ from the mapped PlantDoc ground truth. Macro metrics average only over mapped ground-truth classes."
+    }
+  },
+  "additional_hybrid_clahe": {
+    "status": "not_trained",
+    "reason": "The brief made this optional and required a stable, computationally reasonable implementation; no extra training was authorized or needed for the core four-checkpoint comparison."
+  },
+  "limitations": [
+    "PlantVillage evaluation measures performance on a controlled image domain.",
+    "The PlantDoc comparison uses only 83 images across nine mapped classes; it does not establish general field robustness.",
+    "Latency is the median of three batch-one model-forward trials after warmup; image decoding and preprocessing are excluded, and results vary with runtime and hardware.",
+    "Profiler FLOPs are approximate and omit unsupported operators.",
+    "Grad-CAM++ is a class-discriminative visualization, not a causal explanation.",
+    "PlantDoc images are internet-sourced and class mappings are restricted to explicit compatible labels."
+  ]
+}

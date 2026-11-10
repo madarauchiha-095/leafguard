@@ -1,0 +1,810 @@
+{
+  "generated_utc": "2026-09-24T15:13:21.627789+00:00",
+  "project": "LeafGuard",
+  "project_revision": "unavailable; workspace has no .git metadata",
+  "environment": {
+    "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "python_implementation": "CPython",
+    "os": "Windows",
+    "os_release": "11",
+    "architecture": "AMD64",
+    "pytorch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "timm": "1.0.30",
+    "cuda_available": true,
+    "pytorch_cuda_build": "12.8",
+    "cudnn": 91900,
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dependencies_from_requirements_txt": {
+      "aiohappyeyeballs": {
+        "requirements_entry": "aiohappyeyeballs==2.7.1",
+        "installed_version": "2.7.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "aiohttp": {
+        "requirements_entry": "aiohttp==3.14.3",
+        "installed_version": "3.14.3",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "aiosignal": {
+        "requirements_entry": "aiosignal==1.4.0",
+        "installed_version": "1.4.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "altair": {
+        "requirements_entry": "altair==6.3.0",
+        "installed_version": "6.3.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "anyio": {
+        "requirements_entry": "anyio==4.15.1",
+        "installed_version": "4.15.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "attrs": {
+        "requirements_entry": "attrs==26.1.0",
+        "installed_version": "26.1.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "certifi": {
+        "requirements_entry": "certifi==2026.7.22",
+        "installed_version": "2026.7.22",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "cffi": {
+        "requirements_entry": "cffi==2.1.1",
+        "installed_version": "2.1.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "charset-normalizer": {
+        "requirements_entry": "charset-normalizer==3.5.1",
+        "installed_version": "3.5.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "click": {
+        "requirements_entry": "click==8.5.0",
+        "installed_version": "8.5.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "cloudpickle": {
+        "requirements_entry": "cloudpickle==3.1.2",
+        "installed_version": "3.1.2",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "colorama": {
+        "requirements_entry": "colorama==0.4.6",
+        "installed_version": "0.4.6",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "contourpy": {
+        "requirements_entry": "contourpy==1.4.0",
+        "installed_version": "1.4.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "cryptography": {
+        "requirements_entry": "cryptography==50.0.1",
+        "installed_version": "50.0.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "cycler": {
+        "requirements_entry": "cycler==0.12.1",
+        "installed_version": "0.12.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "datasets": {
+        "requirements_entry": "datasets==5.0.1",
+        "installed_version": "3.6.0",
+        "requirement_status": "MISMATCH",
+        "requirement_matches_installed": false
+      },
+      "dill": {
+        "requirements_entry": "dill==0.4.1",
+        "installed_version": "0.3.8",
+        "requirement_status": "MISMATCH",
+        "requirement_matches_installed": false
+      },
+      "filelock": {
+        "requirements_entry": "filelock==3.32.3",
+        "installed_version": "3.32.3",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "fonttools": {
+        "requirements_entry": "fonttools==4.66.0",
+        "installed_version": "4.66.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "frozenlist": {
+        "requirements_entry": "frozenlist==1.8.0",
+        "installed_version": "1.8.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "fsspec": {
+        "requirements_entry": "fsspec==2026.6.0",
+        "installed_version": "2025.3.0",
+        "requirement_status": "MISMATCH",
+        "requirement_matches_installed": false
+      },
+      "grad-cam": {
+        "requirements_entry": "grad-cam==1.5.7",
+        "installed_version": "1.5.7",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "h11": {
+        "requirements_entry": "h11==0.16.0",
+        "installed_version": "0.16.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "hf-xet": {
+        "requirements_entry": "hf-xet==1.6.0",
+        "installed_version": "1.6.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "huggingface_hub": {
+        "requirements_entry": "huggingface_hub==1.32.0",
+        "installed_version": "1.32.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "idna": {
+        "requirements_entry": "idna==3.20",
+        "installed_version": "3.20",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "itsdangerous": {
+        "requirements_entry": "itsdangerous==2.2.0",
+        "installed_version": "2.2.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "Jinja2": {
+        "requirements_entry": "Jinja2==3.1.6",
+        "installed_version": "3.1.6",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "joblib": {
+        "requirements_entry": "joblib==1.6.0",
+        "installed_version": "1.6.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "jsonschema": {
+        "requirements_entry": "jsonschema==4.26.0",
+        "installed_version": "4.26.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "jsonschema-specifications": {
+        "requirements_entry": "jsonschema-specifications==2025.9.1",
+        "installed_version": "2025.9.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "kiwisolver": {
+        "requirements_entry": "kiwisolver==1.5.1",
+        "installed_version": "1.5.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "MarkupSafe": {
+        "requirements_entry": "MarkupSafe==3.0.3",
+        "installed_version": "3.0.3",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "matplotlib": {
+        "requirements_entry": "matplotlib==3.11.2",
+        "installed_version": "3.11.2",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "mpmath": {
+        "requirements_entry": "mpmath==1.3.0",
+        "installed_version": "1.3.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "multidict": {
+        "requirements_entry": "multidict==6.9.1",
+        "installed_version": "6.9.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "multiprocess": {
+        "requirements_entry": "multiprocess==0.70.19",
+        "installed_version": "0.70.16",
+        "requirement_status": "MISMATCH",
+        "requirement_matches_installed": false
+      },
+      "narwhals": {
+        "requirements_entry": "narwhals==2.26.0",
+        "installed_version": "2.26.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "networkx": {
+        "requirements_entry": "networkx==3.6.1",
+        "installed_version": "3.6.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "numpy": {
+        "requirements_entry": "numpy==2.5.2",
+        "installed_version": "2.5.2",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "opencv-python": {
+        "requirements_entry": "opencv-python==5.0.0.93",
+        "installed_version": "5.0.0.93",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "opencv-python-headless": {
+        "requirements_entry": "opencv-python-headless==5.0.0.93",
+        "installed_version": "5.0.0.93",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "packaging": {
+        "requirements_entry": "packaging==26.3",
+        "installed_version": "26.3",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "pandas": {
+        "requirements_entry": "pandas==3.0.6",
+        "installed_version": "3.0.6",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "pillow": {
+        "requirements_entry": "pillow==12.3.0",
+        "installed_version": "12.3.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "propcache": {
+        "requirements_entry": "propcache==0.5.4",
+        "installed_version": "0.5.4",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "protobuf": {
+        "requirements_entry": "protobuf==7.36.2",
+        "installed_version": "7.36.2",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "pyarrow": {
+        "requirements_entry": "pyarrow==25.0.1",
+        "installed_version": "25.0.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "pycparser": {
+        "requirements_entry": "pycparser==3.0",
+        "installed_version": "3.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "pydeck": {
+        "requirements_entry": "pydeck==0.9.3",
+        "installed_version": "0.9.3",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "pyparsing": {
+        "requirements_entry": "pyparsing==3.3.3",
+        "installed_version": "3.3.3",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "python-dateutil": {
+        "requirements_entry": "python-dateutil==2.9.0.post0",
+        "installed_version": "2.9.0.post0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "python-multipart": {
+        "requirements_entry": "python-multipart==0.0.32",
+        "installed_version": "0.0.32",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "PyYAML": {
+        "requirements_entry": "PyYAML==6.0.3",
+        "installed_version": "6.0.3",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "referencing": {
+        "requirements_entry": "referencing==0.37.0",
+        "installed_version": "0.37.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "requests": {
+        "requirements_entry": "requests==2.34.2",
+        "installed_version": "2.34.2",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "rpds-py": {
+        "requirements_entry": "rpds-py==2026.6.3",
+        "installed_version": "2026.6.3",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "safetensors": {
+        "requirements_entry": "safetensors==0.8.0",
+        "installed_version": "0.8.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "scikit-learn": {
+        "requirements_entry": "scikit-learn==1.9.1",
+        "installed_version": "1.9.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "scipy": {
+        "requirements_entry": "scipy==1.18.1",
+        "installed_version": "1.18.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "setuptools": {
+        "requirements_entry": "setuptools==78.1.0",
+        "installed_version": "78.1.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "six": {
+        "requirements_entry": "six==1.17.0",
+        "installed_version": "1.17.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "starlette": {
+        "requirements_entry": "starlette==1.7.0",
+        "installed_version": "1.7.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "streamlit": {
+        "requirements_entry": "streamlit==1.64.0",
+        "installed_version": "1.64.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "sympy": {
+        "requirements_entry": "sympy==1.14.0",
+        "installed_version": "1.14.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "threadpoolctl": {
+        "requirements_entry": "threadpoolctl==3.7.0",
+        "installed_version": "3.7.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "timm": {
+        "requirements_entry": "timm==1.0.30",
+        "installed_version": "1.0.30",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "toml": {
+        "requirements_entry": "toml==0.10.2",
+        "installed_version": "0.10.2",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "torch": {
+        "requirements_entry": "torch==2.11.0+cu128",
+        "installed_version": "2.11.0+cu128",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "torchaudio": {
+        "requirements_entry": "torchaudio==2.11.0+cu128",
+        "installed_version": "2.11.0+cu128",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "torchvision": {
+        "requirements_entry": "torchvision==0.26.0+cu128",
+        "installed_version": "0.26.0+cu128",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "tqdm": {
+        "requirements_entry": "tqdm==4.70.1",
+        "installed_version": "4.70.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "ttach": {
+        "requirements_entry": "ttach==0.0.3",
+        "installed_version": "0.0.3",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "typing_extensions": {
+        "requirements_entry": "typing_extensions==4.16.0",
+        "installed_version": "4.16.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "tzdata": {
+        "requirements_entry": "tzdata==2026.4",
+        "installed_version": "2026.4",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "urllib3": {
+        "requirements_entry": "urllib3==2.8.0",
+        "installed_version": "2.8.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "uvicorn": {
+        "requirements_entry": "uvicorn==0.53.0",
+        "installed_version": "0.53.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "watchdog": {
+        "requirements_entry": "watchdog==6.0.0",
+        "installed_version": "6.0.0",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "websockets": {
+        "requirements_entry": "websockets==16.1.1",
+        "installed_version": "16.1.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "xxhash": {
+        "requirements_entry": "xxhash==4.0.1",
+        "installed_version": "4.0.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      },
+      "yarl": {
+        "requirements_entry": "yarl==1.25.1",
+        "installed_version": "1.25.1",
+        "requirement_status": "MATCH",
+        "requirement_matches_installed": true
+      }
+    },
+    "dependency_mismatches": {
+      "datasets": {
+        "requirements_entry": "datasets==5.0.1",
+        "installed_version": "3.6.0",
+        "requirement_status": "MISMATCH",
+        "requirement_matches_installed": false
+      },
+      "dill": {
+        "requirements_entry": "dill==0.4.1",
+        "installed_version": "0.3.8",
+        "requirement_status": "MISMATCH",
+        "requirement_matches_installed": false
+      },
+      "fsspec": {
+        "requirements_entry": "fsspec==2026.6.0",
+        "installed_version": "2025.3.0",
+        "requirement_status": "MISMATCH",
+        "requirement_matches_installed": false
+      },
+      "multiprocess": {
+        "requirements_entry": "multiprocess==0.70.19",
+        "installed_version": "0.70.16",
+        "requirement_status": "MISMATCH",
+        "requirement_matches_installed": false
+      }
+    }
+  },
+  "datasets": {
+    "plantvillage_derived": {
+      "source": "Existing processed project subset; original acquisition URL/version is not recorded in this workspace.",
+      "license": "Not independently established from available project metadata.",
+      "classes": [
+        "Apple___Apple_scab",
+        "Apple___Black_rot",
+        "Corn_(maize)___Common_rust_",
+        "Grape___Black_rot",
+        "Grape___healthy",
+        "Potato___Early_blight",
+        "Potato___Late_blight",
+        "Tomato___Early_blight",
+        "Tomato___Late_blight",
+        "Tomato___healthy"
+      ],
+      "split_counts": {
+        "train": 7647,
+        "validation": 845,
+        "test": 2054
+      },
+      "semantic_label_review": "Folder labels and class order mechanically checked; no independent relabeling."
+    },
+    "plantdoc": {
+      "source_url": "https://github.com/pratikkayal/PlantDoc-Dataset",
+      "source_commit": "5467f6012d78d1c446145d5f582da6096f852ae8",
+      "license_statement": "CC BY 4.0 (upstream LICENSE.txt)",
+      "evaluated_split": "test only",
+      "upstream_test_images": 236,
+      "mapped_images": 83,
+      "mapped_class_counts": {
+        "Apple___Apple_scab": 10,
+        "Corn_(maize)___Common_rust_": 10,
+        "Grape___Black_rot": 8,
+        "Grape___healthy": 12,
+        "Potato___Early_blight": 8,
+        "Potato___Late_blight": 8,
+        "Tomato___Early_blight": 9,
+        "Tomato___Late_blight": 10,
+        "Tomato___healthy": 8
+      },
+      "class_mapping": {
+        "apple scab leaf": "Apple___Apple_scab",
+        "apple leaf": null,
+        "corn rust leaf": "Corn_(maize)___Common_rust_",
+        "grape leaf black rot": "Grape___Black_rot",
+        "grape leaf": "Grape___healthy",
+        "potato leaf early blight": "Potato___Early_blight",
+        "potato leaf late blight": "Potato___Late_blight",
+        "potato leaf": null,
+        "tomato early blight leaf": "Tomato___Early_blight",
+        "tomato leaf late blight": "Tomato___Late_blight",
+        "tomato leaf": "Tomato___healthy"
+      },
+      "prepared_source_blob_sha256_verified": true
+    },
+    "plantseg_v7": {
+      "source_url": "https://zenodo.org/records/17719108",
+      "release": "PlantSeg v7",
+      "archive_path": "data/external/plantseg_v7_source.zip",
+      "archive_bytes": 1057281724,
+      "archive_md5": "9358a66dff88cdd15c4fe009763c40a3",
+      "archive_sha256": "cbdfb273eb26fea93fda52bbfe4766cc31881feb3a1202b13e4d85e8a4c0bcfa",
+      "official_record_md5_match": true,
+      "source_split_counts": {
+        "train": 5367,
+        "val": 846,
+        "test": 1561
+      },
+      "evaluated_split": "official Test split only; no training or validation images",
+      "license_selection": "CC-BY-NC rows only; two CC0 mapped candidates excluded before evaluation to keep a single license selection rule; no image redistribution",
+      "mapped_images": 143,
+      "mapped_class_counts": {
+        "Apple___Black_rot": 12,
+        "Apple___Apple_scab": 34,
+        "Grape___Black_rot": 17,
+        "Potato___Early_blight": 9,
+        "Potato___Late_blight": 18,
+        "Tomato___Early_blight": 34,
+        "Tomato___Late_blight": 19
+      },
+      "class_mapping": {
+        "apple scab": "Apple___Apple_scab",
+        "apple black rot": "Apple___Black_rot",
+        "grape black rot": "Grape___Black_rot",
+        "potato early blight": "Potato___Early_blight",
+        "potato late blight": "Potato___Late_blight",
+        "tomato early blight": "Tomato___Early_blight",
+        "tomato late blight": "Tomato___Late_blight"
+      },
+      "overlap_screen": {
+        "external_inventory_counts": {
+          "PlantVillage_test": 2054,
+          "PlantDoc_source_test": 83
+        },
+        "exact_sha256_duplicates": [],
+        "perceptual_hash_method": "32x32 grayscale resize; OpenCV DCT 8x8 low-frequency median bit hash; Hamming distance <=4 flagged for visual review.",
+        "near_duplicate_flags": [],
+        "near_duplicate_flag_count": 0
+      },
+      "archive_audit_status": "VERIFIED",
+      "prediction_evaluation_audit_status": "VERIFIED"
+    }
+  },
+  "checkpoints": {
+    "mobilenet": {
+      "path": "models/mobilenet_v3_best.pth",
+      "bytes": 18599019,
+      "sha256": "33194968c50eb807a02fab2fe46088de71a99100d61bbcb0ce63b3023b6c9fcc",
+      "parameters": 1528106,
+      "preprocessing": {
+        "resize": [
+          224,
+          224
+        ],
+        "normalization_mean": [
+          0.485,
+          0.456,
+          0.406
+        ],
+        "normalization_std": [
+          0.229,
+          0.224,
+          0.225
+        ],
+        "clahe": false,
+        "clahe_clip_limit": null,
+        "clahe_tile_grid_size": null
+      }
+    },
+    "mobilenet_clahe": {
+      "path": "models/mobilenet_v3_clahe_best.pth",
+      "bytes": 18603267,
+      "sha256": "2060a5a75cac87eaf307452ba6b28f52386a9288dd4dab413694eaf397347966",
+      "parameters": 1528106,
+      "preprocessing": {
+        "resize": [
+          224,
+          224
+        ],
+        "normalization_mean": [
+          0.485,
+          0.456,
+          0.406
+        ],
+        "normalization_std": [
+          0.229,
+          0.224,
+          0.225
+        ],
+        "clahe": true,
+        "clahe_clip_limit": 2.0,
+        "clahe_tile_grid_size": [
+          8,
+          8
+        ]
+      }
+    },
+    "deit_tiny": {
+      "path": "models/deit_tiny_best.pth",
+      "bytes": 22167777,
+      "sha256": "c64dac118ca113edfc2f2f23af6d7f578a01e53087d285ccf460187995f1592c",
+      "parameters": 5526346,
+      "preprocessing": {
+        "resize": [
+          224,
+          224
+        ],
+        "normalization_mean": [
+          0.485,
+          0.456,
+          0.406
+        ],
+        "normalization_std": [
+          0.229,
+          0.224,
+          0.225
+        ],
+        "clahe": false,
+        "clahe_clip_limit": null,
+        "clahe_tile_grid_size": null
+      }
+    },
+    "hybrid": {
+      "path": "models/hybrid_best.pth",
+      "bytes": 28132099,
+      "sha256": "116be826ae3ccb601de4a7259ca06ed137c6f413879edc5e9438e9a9f25abb00",
+      "parameters": 6980586,
+      "preprocessing": {
+        "resize": [
+          224,
+          224
+        ],
+        "normalization_mean": [
+          0.485,
+          0.456,
+          0.406
+        ],
+        "normalization_std": [
+          0.229,
+          0.224,
+          0.225
+        ],
+        "clahe": false,
+        "clahe_clip_limit": null,
+        "clahe_tile_grid_size": null
+      }
+    }
+  },
+  "random_seeds": {
+    "mobilenet_training": null,
+    "mobilenet_clahe_training": null,
+    "deit_tiny_training": 42,
+    "hybrid_training": 42,
+    "bootstrap": 20260924,
+    "note": "The two MobileNet training scripts set no explicit seed. Existing checkpoints were not retrained."
+  },
+  "evaluation_settings": {
+    "input_size": [
+      224,
+      224
+    ],
+    "plantvillage_batch_size": 32,
+    "plantdoc_batch_size": 16,
+    "plantseg_v7_batch_size": 16,
+    "resource_timing_batch_size": 1,
+    "resource_timing_warmups": 8,
+    "resource_timing_repeats": 3,
+    "resource_timing_iterations_per_repeat": 60,
+    "resource_timing_method": "CUDA events on GPU; median model-forward time only, excluding image decode and preprocessing.",
+    "external_confidence_high_score_threshold": 0.9,
+    "paired_comparison_bootstrap_replicates": 10000,
+    "paired_comparison_bootstrap_seed": 20260924,
+    "per_model_and_domain_gap_bootstrap_replicates": 10000,
+    "per_model_and_domain_gap_bootstrap_seed": 20260924,
+    "classes": [
+      "Apple___Apple_scab",
+      "Apple___Black_rot",
+      "Corn_(maize)___Common_rust_",
+      "Grape___Black_rot",
+      "Grape___healthy",
+      "Potato___Early_blight",
+      "Potato___Late_blight",
+      "Tomato___Early_blight",
+      "Tomato___Late_blight",
+      "Tomato___healthy"
+    ],
+    "unsupported_output_predictions": "Counted as errors; full ten-output confusion matrices retained."
+  },
+  "commands": [
+    ".\\.venv\\Scripts\\python.exe -m src.evaluation.reproducibility_audit",
+    ".\\.venv\\Scripts\\python.exe -m src.evaluation.domain_shift",
+    ".\\.venv\\Scripts\\python.exe -m src.evaluation.domain_shift --dataset data/processed/test --output results/domain_shift/plantvillage_per_image --dataset-name 'PlantVillage held-out test split' --dataset-slug plantvillage_test --batch-size 32",
+    ".\\.venv\\Scripts\\python.exe -m src.evaluation.domain_shift --manifest results/audit/plantseg_v7_archive_audit.json --archive data/external/plantseg_v7_source.zip --output results/domain_shift/plantseg_v7 --dataset-name 'PlantSeg v7 mapped test split (CC-BY-NC only)' --dataset-slug plantseg_v7",
+    ".\\.venv\\Scripts\\python.exe -m src.evaluation.summarize_external_results --results-dir results/domain_shift --dataset-slug plantdoc --dataset-name 'PlantDoc mapped test split'",
+    ".\\.venv\\Scripts\\python.exe -m src.evaluation.summarize_external_results --results-dir results/domain_shift/plantseg_v7 --dataset-slug plantseg_v7 --dataset-name 'PlantSeg v7 mapped test split (CC-BY-NC only)'",
+    ".\\.venv\\Scripts\\python.exe -m src.evaluation.analyze_confidence --predictions results/domain_shift/plantdoc_predictions.csv --external-results results/domain_shift --external-slug plantdoc --output-json results/domain_shift/confidence_analysis.json --plot-dir results/plots/domain_shift",
+    ".\\.venv\\Scripts\\python.exe -m src.evaluation.analyze_confidence --predictions results/domain_shift/plantseg_v7/plantseg_v7_predictions.csv --external-results results/domain_shift/plantseg_v7 --external-slug plantseg_v7 --output-json results/domain_shift/plantseg_v7/confidence_analysis.json --plot-dir results/plots/domain_shift/plantseg_v7",
+    ".\\.venv\\Scripts\\python.exe -m src.evaluation.verify_external_results --results-dir results/domain_shift/plantseg_v7 --audit-manifest results/audit/plantseg_v7_archive_audit.json --checkpoint-manifest research/reproducibility_manifest.json --dataset-slug plantseg_v7 --output results/audit/plantseg_v7_evaluation_audit.json",
+    ".\\.venv\\Scripts\\python.exe -m src.evaluation.finalize_results",
+    ".\\.venv\\Scripts\\python.exe -m src.evaluation.uncertainty",
+    ".\\.venv\\Scripts\\python.exe -m src.explainability.generate_examples",
+    ".\\.venv\\Scripts\\python.exe -m src.explainability.generate_paired_examples",
+    ".\\.venv\\Scripts\\python.exe -m src.evaluation.build_final_research_artifacts"
+  ],
+  "integrity": {
+    "hybrid_expected_sha256": "116be826ae3ccb601de4a7259ca06ed137c6f413879edc5e9438e9a9f25abb00",
+    "verification_status": "VERIFIED",
+    "scope": "Local digest change detection, not signed provenance."
+  },
+  "reproducibility_warnings": [
+    "PlantVillage source/version/license metadata was not recorded in the workspace.",
+    "MobileNetV3 and MobileNetV3+CLAHE training scripts do not set explicit random seeds.",
+    "PlantDoc has only 83 mapped test examples; label mapping has not been independently expert-adjudicated.",
+    "PlantSeg v7 has 143 mapped test images in seven classes; one class has n=9, labels have not been independently expert-adjudicated, and visual review found mixed leaf/fruit/whole-plant content plus watermarks/graphics.",
+    "GPU latency shows cross-run drift even though individual trial sets are mostly stable."
+  ]
+}

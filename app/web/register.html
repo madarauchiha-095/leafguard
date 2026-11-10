@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Create account | LeafGuard</title>
+  <link rel="stylesheet" href="/assets/app.css">
+  <script defer src="/assets/app.js"></script>
+</head>
+<body class="auth-body">
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">L</span> LeafGuard</a>
+    <nav class="nav"><a href="/insights">Research</a><a href="/login">Sign in</a></nav>
+  </header>
+  <main class="auth-layout">
+    <aside class="auth-story">
+      <a class="auth-back" href="/">← &nbsp;Back to LeafGuard</a>
+      <div class="auth-orbit"><div class="orbit-ring"></div><div class="orbit-leaf">✳</div><span class="orbit-dot dot-one"></span><span class="orbit-dot dot-two"></span><span class="orbit-dot dot-three"></span></div>
+      <div class="auth-story-copy">
+        <div class="eyebrow">A THOUGHTFUL TOOL FOR PLANT RESEARCH</div>
+        <h2>Start with curiosity.<br>Grow with evidence.</h2>
+        <p>Bring your leaf images into one calm, private workspace for model comparison and review.</p>
+        <div class="auth-proof"><span class="proof-icon">✦</span><span><strong>Four models. One workspace.</strong><br><span class="small">Explore predictions without overstating what they mean.</span></span></div>
+      </div>
+    </aside>
+    <section class="auth-form-panel">
+      <div class="auth-form-content">
+        <div class="eyebrow">CREATE A LOCAL ACCOUNT</div>
+        <h1>Make it yours</h1>
+        <p>Your workspace stays on this device.</p>
+        <form class="form-card" method="post" data-auth-form="register">
+          <div class="notice" role="status"></div>
+          <div class="field"><label for="username">Username</label><input id="username" name="username" autocomplete="username" required minlength="3" maxlength="40" placeholder="Choose a username"></div>
+          <div class="field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="new-password" required minlength="12" maxlength="128" placeholder="At least 12 characters"><div class="small password-hint">Use at least 12 characters for a stronger password.</div></div>
+          <div class="field"><label for="confirm">Confirm password</label><input id="confirm" name="confirm" type="password" autocomplete="new-password" required minlength="12" maxlength="128" placeholder="Enter your password again"></div>
+          <button class="btn btn-primary auth-submit" type="submit">Create account <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="auth-switch">Already have an account? <a href="/login">Sign in</a></p>
+        <p class="small auth-footnote">Passwords are salted and hashed before they are stored. LeafGuard does not upload your images to a third-party service.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

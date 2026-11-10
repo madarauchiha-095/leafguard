@@ -1,0 +1,5238 @@
+{
+  "project": "LeafGuard",
+  "generated_from": [
+    "results/final_results.json",
+    "results/audit/*_plantvillage_verified.json",
+    "results/domain_shift/*_test_results.json",
+    "results/domain_shift/*/confidence_analysis.json",
+    "results/audit/plantseg_v7_evaluation_audit.json"
+  ],
+  "plantseg_evaluation_audit_status": "VERIFIED",
+  "bootstrap": {
+    "replicates": 10000,
+    "seed": 20260924,
+    "method": "Stratified image bootstrap from saved confusion matrices; separate independent domain resampling for domain-gap intervals; observed class supports are fixed.",
+    "interpretation_limit": "Intervals are conditional on observed dataset samples, mappings, source and supports; they do not capture dataset selection or source-population uncertainty."
+  },
+  "models": {
+    "mobilenet": {
+      "model": "MobileNetV3-Small",
+      "model_key": "mobilenet",
+      "plantvillage_full": {
+        "accuracy": 0.9951314508276533,
+        "precision_macro": 0.9967382282342913,
+        "recall_macro": 0.9952029566786935,
+        "f1_macro": 0.9959522060927173,
+        "correct": 2044,
+        "total": 2054,
+        "sample_count": 2054,
+        "mapped_classes": 10,
+        "accuracy_95_ci": [
+          0.9917234664070107,
+          0.9980525803310614
+        ],
+        "macro_f1_95_ci": [
+          0.9931572971429478,
+          0.9982584694099238
+        ]
+      },
+      "matched_plantvillage": {
+        "plantdoc": {
+          "sample_count": 1908,
+          "mapped_classes": 9,
+          "accuracy": 0.9947589098532494,
+          "precision_macro": 0.9963758091492125,
+          "recall_macro": 0.994669951865215,
+          "f1_macro": 0.9955024512141303,
+          "f1_weighted": 0.9947539553587756,
+          "accuracy_95_ci": [
+            0.9910901467505241,
+            0.9979035639412998
+          ],
+          "macro_f1_95_ci": [
+            0.9924249526710928,
+            0.9980649660110265
+          ]
+        },
+        "plantseg_v7": {
+          "sample_count": 1407,
+          "mapped_classes": 7,
+          "accuracy": 0.9936034115138592,
+          "precision_macro": 0.9957093588672535,
+          "recall_macro": 0.9935799814024628,
+          "f1_macro": 0.9946214284304612,
+          "f1_weighted": 0.993591143088903,
+          "accuracy_95_ci": [
+            0.9893390191897654,
+            0.9971570717839374
+          ],
+          "macro_f1_95_ci": [
+            0.9905325720487687,
+            0.9978906821018055
+          ]
+        }
+      },
+      "external": {
+        "plantdoc": {
+          "model": "MobileNetV3-Small",
+          "model_key": "mobilenet",
+          "checkpoint": "models\\mobilenet_v3_best.pth",
+          "dataset": "PlantDoc mapped test split",
+          "preprocessing": {
+            "resize": [
+              224,
+              224
+            ],
+            "normalization": "ImageNet mean/std",
+            "clahe": false,
+            "clahe_clip_limit": null,
+            "clahe_tile_grid_size": null
+          },
+          "sample_count": 83,
+          "mapped_classes": [
+            "Apple___Apple_scab",
+            "Corn_(maize)___Common_rust_",
+            "Grape___Black_rot",
+            "Grape___healthy",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight",
+            "Tomato___healthy"
+          ],
+          "metrics": {
+            "accuracy": 0.4939759036144578,
+            "precision_macro": 0.6445383627546816,
+            "recall_macro": 0.4691358024691357,
+            "f1_macro": 0.4231958245508381,
+            "f1_weighted": 0.4469727147070668,
+            "correct": 41,
+            "total": 83,
+            "total_inference_seconds": 1.5928224999806844
+          },
+          "per_class": {
+            "Apple___Apple_scab": {
+              "precision": 1.0,
+              "recall": 0.2,
+              "f1-score": 0.3333333333333333,
+              "support": 10.0
+            },
+            "Corn_(maize)___Common_rust_": {
+              "precision": 0.5882352941176471,
+              "recall": 1.0,
+              "f1-score": 0.7407407407407407,
+              "support": 10.0
+            },
+            "Grape___Black_rot": {
+              "precision": 0.5,
+              "recall": 0.75,
+              "f1-score": 0.6,
+              "support": 8.0
+            },
+            "Grape___healthy": {
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "f1-score": 0.8,
+              "support": 12.0
+            },
+            "Potato___Early_blight": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 8.0
+            },
+            "Potato___Late_blight": {
+              "precision": 1.0,
+              "recall": 0.125,
+              "f1-score": 0.2222222222222222,
+              "support": 8.0
+            },
+            "Tomato___Early_blight": {
+              "precision": 0.45454545454545453,
+              "recall": 0.5555555555555556,
+              "f1-score": 0.5,
+              "support": 9.0
+            },
+            "Tomato___Late_blight": {
+              "precision": 0.25806451612903225,
+              "recall": 0.8,
+              "f1-score": 0.3902439024390244,
+              "support": 10.0
+            },
+            "Tomato___healthy": {
+              "precision": 1.0,
+              "recall": 0.125,
+              "f1-score": 0.2222222222222222,
+              "support": 8.0
+            }
+          },
+          "confusion_matrix_labels": [
+            "Apple___Apple_scab",
+            "Apple___Black_rot",
+            "Corn_(maize)___Common_rust_",
+            "Grape___Black_rot",
+            "Grape___healthy",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight",
+            "Tomato___healthy"
+          ],
+          "confusion_matrix": [
+            [
+              2,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              10,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              6,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              2,
+              8,
+              0,
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              2,
+              4,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              5,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              8,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              2,
+              4,
+              1
+            ]
+          ],
+          "mean_max_softmax_confidence": 0.8868032776447664,
+          "interpretation_note": "Predictions into any of the model's ten output classes are counted as errors when they differ from the mapped PlantDoc ground truth. Macro metrics average only over mapped ground-truth classes.",
+          "uncertainty": {
+            "accuracy_95_ci": [
+              0.40963855421686746,
+              0.5662650602409639
+            ],
+            "macro_f1_95_ci": [
+              0.32783570233848996,
+              0.5078403414575324
+            ],
+            "resamples": 10000,
+            "method": "Stratified image bootstrap from confusion-matrix counts; outcomes resampled within each observed true class, class supports fixed."
+          }
+        },
+        "plantseg_v7": {
+          "model": "MobileNetV3-Small",
+          "model_key": "mobilenet",
+          "checkpoint": "models\\mobilenet_v3_best.pth",
+          "dataset": "PlantSeg v7 mapped test split (CC-BY-NC only)",
+          "preprocessing": {
+            "resize": [
+              224,
+              224
+            ],
+            "normalization": "ImageNet mean/std",
+            "clahe": false,
+            "clahe_clip_limit": null,
+            "clahe_tile_grid_size": null
+          },
+          "sample_count": 143,
+          "mapped_classes": [
+            "Apple___Apple_scab",
+            "Apple___Black_rot",
+            "Grape___Black_rot",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight"
+          ],
+          "metrics": {
+            "accuracy": 0.21678321678321677,
+            "precision_macro": 0.21831735626802043,
+            "recall_macro": 0.18774878372401593,
+            "f1_macro": 0.15095325879639604,
+            "f1_weighted": 0.19226452559785892,
+            "correct": 31,
+            "total": 143,
+            "total_inference_seconds": 2.413288999989163
+          },
+          "per_class": {
+            "Apple___Apple_scab": {
+              "precision": 0.8,
+              "recall": 0.11764705882352941,
+              "f1-score": 0.20512820512820512,
+              "support": 34.0
+            },
+            "Apple___Black_rot": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 12.0
+            },
+            "Grape___Black_rot": {
+              "precision": 0.22727272727272727,
+              "recall": 0.29411764705882354,
+              "f1-score": 0.2564102564102564,
+              "support": 17.0
+            },
+            "Potato___Early_blight": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 9.0
+            },
+            "Potato___Late_blight": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 18.0
+            },
+            "Tomato___Early_blight": {
+              "precision": 0.3235294117647059,
+              "recall": 0.3235294117647059,
+              "f1-score": 0.3235294117647059,
+              "support": 34.0
+            },
+            "Tomato___Late_blight": {
+              "precision": 0.1774193548387097,
+              "recall": 0.5789473684210527,
+              "f1-score": 0.2716049382716049,
+              "support": 19.0
+            }
+          },
+          "confusion_matrix_labels": [
+            "Apple___Apple_scab",
+            "Apple___Black_rot",
+            "Corn_(maize)___Common_rust_",
+            "Grape___Black_rot",
+            "Grape___healthy",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight",
+            "Tomato___healthy"
+          ],
+          "confusion_matrix": [
+            [
+              4,
+              0,
+              6,
+              5,
+              0,
+              0,
+              0,
+              6,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              1,
+              7,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              5,
+              0,
+              0,
+              0,
+              7,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              5,
+              0,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              3,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              6,
+              4,
+              0,
+              0,
+              0,
+              11,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              5,
+              11,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "mean_max_softmax_confidence": 0.8115508308360627,
+          "interpretation_note": "Predictions into any of the model's ten output classes are counted as errors when they differ from the mapped external ground truth. Macro metrics average only over mapped ground-truth classes.",
+          "uncertainty": {
+            "accuracy_95_ci": [
+              0.16083916083916083,
+              0.27972027972027974
+            ],
+            "macro_f1_95_ci": [
+              0.10584962174247887,
+              0.19622707884767193
+            ],
+            "resamples": 10000,
+            "method": "Stratified image bootstrap from confusion-matrix counts; outcomes resampled within each observed true class, class supports fixed."
+          }
+        }
+      },
+      "domain_gap": {
+        "plantdoc": {
+          "accuracy": 0.5007830062387917,
+          "macro_f1": 0.5723066266632921,
+          "accuracy_95_ci": [
+            0.4253491955242352,
+            0.5835611313177236
+          ],
+          "macro_f1_95_ci": [
+            0.48788498965423727,
+            0.6676515668003179
+          ],
+          "bootstrap_method": "Independent stratified image bootstrap in PlantVillage and external domains; conditional on each domain's observed class supports."
+        },
+        "plantseg_v7": {
+          "accuracy": 0.7768201947306425,
+          "macro_f1": 0.8436681696340651,
+          "accuracy_95_ci": [
+            0.7145938638475953,
+            0.835607178890761
+          ],
+          "macro_f1_95_ci": [
+            0.7984393459572623,
+            0.8891633682769895
+          ],
+          "bootstrap_method": "Independent stratified image bootstrap in PlantVillage and external domains; conditional on each domain's observed class supports."
+        }
+      },
+      "resources": {
+        "parameter_count": 1528106,
+        "checkpoint_size_bytes": 18599019,
+        "checkpoint_size_mib": 17.737,
+        "inference_latency_ms_batch1": 6.882986450195313,
+        "latency_trials_ms_batch1": [
+          7.910485331217448,
+          6.878617350260416,
+          6.882986450195313
+        ],
+        "latency_trial_cv": 0.06719251179836393,
+        "latency_method": "Median of three 60-forward batches after eight warmups; CUDA events on GPU or perf_counter on CPU; model forward only, excluding decode and image preprocessing.",
+        "latency_device": "cuda",
+        "approximate_flops_batch1": 110995576,
+        "flops_note": "Profiler-based approximate count; unsupported operators are omitted."
+      },
+      "confidence": {
+        "plantdoc": {
+          "model_name": "MobileNetV3-Small",
+          "sample_count": 83,
+          "correct_count": 41,
+          "incorrect_count": 42,
+          "confidence_is_maximum_softmax_probability_not_calibrated_uncertainty": true,
+          "confidence_by_outcome": {
+            "correct": {
+              "count": 41,
+              "mean": 0.9068842370335649,
+              "median": 0.9858229756355286,
+              "quantiles": {
+                "p10": 0.6639697551727295,
+                "p25": 0.8886014223098755,
+                "p50": 0.9858229756355286,
+                "p75": 0.9994968175888062,
+                "p90": 0.9999755620956421
+              }
+            },
+            "incorrect": {
+              "count": 42,
+              "mean": 0.8672004363366536,
+              "median": 0.9799671769142151,
+              "quantiles": {
+                "p10": 0.5322894096374512,
+                "p25": 0.8013105094432831,
+                "p50": 0.9799671769142151,
+                "p75": 0.9986708909273148,
+                "p90": 0.9998527467250824
+              }
+            }
+          },
+          "high_confidence_error_summary": {
+            "threshold": 0.9,
+            "predictions_at_or_above_threshold": 58,
+            "incorrect_at_or_above_threshold": 28,
+            "error_fraction_among_predictions_at_or_above_threshold": 0.4827586206896552,
+            "incorrect_fraction_of_all_predictions": 0.3373493975903614
+          },
+          "highest_confidence_incorrect": [
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0030.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9999819993972778,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0032.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9999686479568481,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0031.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9999178647994995,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Apple___Apple_scab/Apple___Apple_scab__plantdoc_0009.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9999091625213623,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Tomato___Early_blight/Tomato___Early_blight__plantdoc_0044.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9998589754104614,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Apple___Apple_scab/Apple___Apple_scab__plantdoc_0006.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9997966885566711,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Tomato___healthy/Tomato___healthy__plantdoc_0063.jpg",
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9997326731681824,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Potato___Early_blight/Potato___Early_blight__plantdoc_0026.jpg",
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9992045760154724,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Tomato___Late_blight/Tomato___Late_blight__plantdoc_0052.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.9991968274116516,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Potato___Early_blight/Potato___Early_blight__plantdoc_0022.jpg",
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9988638162612915,
+              "correct": false,
+              "model": "mobilenet"
+            }
+          ],
+          "lowest_confidence_correct": [
+            {
+              "image_id": "Tomato___Early_blight/Tomato___Early_blight__plantdoc_0039.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.5504143238067627,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Tomato___Early_blight/Tomato___Early_blight__plantdoc_0037.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.5523568391799927,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Tomato___healthy/Tomato___healthy__plantdoc_0056.jpg",
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Tomato___healthy",
+              "confidence": 0.6232210993766785,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Grape___healthy/Grape___healthy__plantdoc_0076.jpg",
+              "true_label": "Grape___healthy",
+              "predicted_label": "Grape___healthy",
+              "confidence": 0.648396909236908,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Grape___healthy/Grape___healthy__plantdoc_0082.jpg",
+              "true_label": "Grape___healthy",
+              "predicted_label": "Grape___healthy",
+              "confidence": 0.6639697551727295,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Grape___healthy/Grape___healthy__plantdoc_0080.jpg",
+              "true_label": "Grape___healthy",
+              "predicted_label": "Grape___healthy",
+              "confidence": 0.6839591264724731,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0029.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Potato___Late_blight",
+              "confidence": 0.7496970891952515,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Grape___Black_rot/Grape___Black_rot__plantdoc_0064.jpg",
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Grape___Black_rot",
+              "confidence": 0.7604995965957642,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Tomato___Early_blight/Tomato___Early_blight__plantdoc_0041.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.7765655517578125,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "Grape___healthy/Grape___healthy__plantdoc_0073.jpg",
+              "true_label": "Grape___healthy",
+              "predicted_label": "Grape___healthy",
+              "confidence": 0.8164150714874268,
+              "correct": true,
+              "model": "mobilenet"
+            }
+          ],
+          "most_common_confusion_pairs": [
+            {
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 6
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 5
+            },
+            {
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 4
+            },
+            {
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 4
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Corn_(maize)___Common_rust_",
+              "count": 3
+            },
+            {
+              "true_label": "Grape___healthy",
+              "predicted_label": "Grape___Black_rot",
+              "count": 2
+            },
+            {
+              "true_label": "Grape___healthy",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 2
+            },
+            {
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 2
+            },
+            {
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 2
+            },
+            {
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 2
+            }
+          ],
+          "worst_external_class_by_f1": {
+            "label": "Potato___Early_blight",
+            "f1": 0.0,
+            "support": 8
+          },
+          "per_class_plantvillage_to_external": {
+            "Apple___Apple_scab": {
+              "plantvillage_f1": 0.9960474308300395,
+              "external_f1": 0.3333333333333333,
+              "f1_change_external_minus_plantvillage": -0.6627140974967063,
+              "f1_degradation_percentage_points": 66.27140974967062,
+              "plantvillage_support": 127,
+              "external_support": 10
+            },
+            "Corn_(maize)___Common_rust_": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.7407407407407407,
+              "f1_change_external_minus_plantvillage": -0.2592592592592593,
+              "f1_degradation_percentage_points": 25.92592592592593,
+              "plantvillage_support": 217,
+              "external_support": 10
+            },
+            "Grape___Black_rot": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.6,
+              "f1_change_external_minus_plantvillage": -0.4,
+              "f1_degradation_percentage_points": 40.0,
+              "plantvillage_support": 168,
+              "external_support": 8
+            },
+            "Grape___healthy": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.8,
+              "f1_change_external_minus_plantvillage": -0.19999999999999996,
+              "f1_degradation_percentage_points": 19.999999999999996,
+              "plantvillage_support": 100,
+              "external_support": 12
+            },
+            "Potato___Early_blight": {
+              "plantvillage_f1": 0.9969418960244648,
+              "external_f1": 0.0,
+              "f1_change_external_minus_plantvillage": -0.9969418960244648,
+              "f1_degradation_percentage_points": 99.69418960244649,
+              "plantvillage_support": 164,
+              "external_support": 8
+            },
+            "Potato___Late_blight": {
+              "plantvillage_f1": 0.9809523809523809,
+              "external_f1": 0.2222222222222222,
+              "f1_change_external_minus_plantvillage": -0.7587301587301587,
+              "f1_degradation_percentage_points": 75.87301587301587,
+              "plantvillage_support": 212,
+              "external_support": 8
+            },
+            "Tomato___Early_blight": {
+              "plantvillage_f1": 0.9976798143851509,
+              "external_f1": 0.5,
+              "f1_change_external_minus_plantvillage": -0.49767981438515085,
+              "f1_degradation_percentage_points": 49.767981438515086,
+              "plantvillage_support": 215,
+              "external_support": 9
+            },
+            "Tomato___Late_blight": {
+              "plantvillage_f1": 0.9894179894179894,
+              "external_f1": 0.3902439024390244,
+              "f1_change_external_minus_plantvillage": -0.599174086978965,
+              "f1_degradation_percentage_points": 59.917408697896505,
+              "plantvillage_support": 375,
+              "external_support": 10
+            },
+            "Tomato___healthy": {
+              "plantvillage_f1": 0.9984825493171472,
+              "external_f1": 0.2222222222222222,
+              "f1_change_external_minus_plantvillage": -0.776260327094925,
+              "f1_degradation_percentage_points": 77.62603270949249,
+              "plantvillage_support": 330,
+              "external_support": 8
+            }
+          }
+        },
+        "plantseg_v7": {
+          "model_name": "MobileNetV3-Small",
+          "sample_count": 143,
+          "correct_count": 31,
+          "incorrect_count": 112,
+          "confidence_is_maximum_softmax_probability_not_calibrated_uncertainty": true,
+          "confidence_by_outcome": {
+            "correct": {
+              "count": 31,
+              "mean": 0.8184139094045085,
+              "median": 0.9203726053237915,
+              "quantiles": {
+                "p10": 0.4318369925022125,
+                "p25": 0.6685723662376404,
+                "p50": 0.9203726053237915,
+                "p75": 0.9918960630893707,
+                "p90": 0.9985772371292114
+              }
+            },
+            "incorrect": {
+              "count": 112,
+              "mean": 0.8096512287322964,
+              "median": 0.8808923959732056,
+              "quantiles": {
+                "p10": 0.5174856841564178,
+                "p25": 0.6716607958078384,
+                "p50": 0.8808923959732056,
+                "p75": 0.9764969944953918,
+                "p90": 0.9994049906730652
+              }
+            }
+          },
+          "high_confidence_error_summary": {
+            "threshold": 0.9,
+            "predictions_at_or_above_threshold": 70,
+            "incorrect_at_or_above_threshold": 52,
+            "error_fraction_among_predictions_at_or_above_threshold": 0.7428571428571429,
+            "incorrect_fraction_of_all_predictions": 0.36363636363636365
+          },
+          "highest_confidence_incorrect": [
+            {
+              "image_id": "potato_late_blight/potato_late_blight_google_0084.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9999945163726807,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "potato_late_blight/potato_late_blight_google_0107.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.999981164932251,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "apple_scab/apple_scab_google_0270.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9999614953994751,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "potato_late_blight/potato_late_blight_11.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9999556541442871,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "potato_late_blight/potato_late_blight_43.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9999428987503052,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "potato_late_blight/potato_late_blight_86.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9999189376831055,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "grape_black_rot/grape_black_rot_google_0320.jpg",
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.9997889399528503,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "potato_late_blight/potato_late_blight_6.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9997183680534363,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_321.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9995942711830139,
+              "correct": false,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "apple_black_rot/apple_black_rot_google_0037.jpg",
+              "true_label": "Apple___Black_rot",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9995192289352417,
+              "correct": false,
+              "model": "mobilenet"
+            }
+          ],
+          "lowest_confidence_correct": [
+            {
+              "image_id": "grape_black_rot/grape_black_rot_216.jpg",
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Grape___Black_rot",
+              "confidence": 0.32149046659469604,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_136.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.3515748381614685,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_671.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.35807809233665466,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "apple_scab/apple_scab_77.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Apple___Apple_scab",
+              "confidence": 0.4318369925022125,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "grape_black_rot/grape_black_rot_google_0097.jpg",
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Grape___Black_rot",
+              "confidence": 0.49970871210098267,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_172.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.5882464051246643,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "tomato_late_blight/tomato_late_blight_182.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.6243032813072205,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_google_0198.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.6492995023727417,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "tomato_late_blight/tomato_late_blight_google_0084.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.6878452301025391,
+              "correct": true,
+              "model": "mobilenet"
+            },
+            {
+              "image_id": "tomato_late_blight/tomato_late_blight_google_0217.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.7569369077682495,
+              "correct": true,
+              "model": "mobilenet"
+            }
+          ],
+          "most_common_confusion_pairs": [
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 13
+            },
+            {
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 13
+            },
+            {
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 13
+            },
+            {
+              "true_label": "Apple___Black_rot",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 7
+            },
+            {
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 7
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Corn_(maize)___Common_rust_",
+              "count": 6
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 6
+            },
+            {
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Corn_(maize)___Common_rust_",
+              "count": 6
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Grape___Black_rot",
+              "count": 5
+            },
+            {
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Grape___Black_rot",
+              "count": 5
+            }
+          ],
+          "worst_external_class_by_f1": {
+            "label": "Apple___Black_rot",
+            "f1": 0.0,
+            "support": 12
+          },
+          "per_class_plantvillage_to_external": {
+            "Apple___Apple_scab": {
+              "plantvillage_f1": 0.9960474308300395,
+              "external_f1": 0.20512820512820512,
+              "f1_change_external_minus_plantvillage": -0.7909192257018345,
+              "f1_degradation_percentage_points": 79.09192257018344,
+              "plantvillage_support": 127,
+              "external_support": 34
+            },
+            "Apple___Black_rot": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.0,
+              "f1_change_external_minus_plantvillage": -1.0,
+              "f1_degradation_percentage_points": 100.0,
+              "plantvillage_support": 146,
+              "external_support": 12
+            },
+            "Grape___Black_rot": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.2564102564102564,
+              "f1_change_external_minus_plantvillage": -0.7435897435897436,
+              "f1_degradation_percentage_points": 74.35897435897436,
+              "plantvillage_support": 168,
+              "external_support": 17
+            },
+            "Potato___Early_blight": {
+              "plantvillage_f1": 0.9969418960244648,
+              "external_f1": 0.0,
+              "f1_change_external_minus_plantvillage": -0.9969418960244648,
+              "f1_degradation_percentage_points": 99.69418960244649,
+              "plantvillage_support": 164,
+              "external_support": 9
+            },
+            "Potato___Late_blight": {
+              "plantvillage_f1": 0.9809523809523809,
+              "external_f1": 0.0,
+              "f1_change_external_minus_plantvillage": -0.9809523809523809,
+              "f1_degradation_percentage_points": 98.09523809523809,
+              "plantvillage_support": 212,
+              "external_support": 18
+            },
+            "Tomato___Early_blight": {
+              "plantvillage_f1": 0.9976798143851509,
+              "external_f1": 0.3235294117647059,
+              "f1_change_external_minus_plantvillage": -0.674150402620445,
+              "f1_degradation_percentage_points": 67.4150402620445,
+              "plantvillage_support": 215,
+              "external_support": 34
+            },
+            "Tomato___Late_blight": {
+              "plantvillage_f1": 0.9894179894179894,
+              "external_f1": 0.2716049382716049,
+              "f1_change_external_minus_plantvillage": -0.7178130511463845,
+              "f1_degradation_percentage_points": 71.78130511463846,
+              "plantvillage_support": 375,
+              "external_support": 19
+            }
+          }
+        }
+      }
+    },
+    "mobilenet_clahe": {
+      "model": "MobileNetV3-Small + CLAHE",
+      "model_key": "mobilenet_clahe",
+      "plantvillage_full": {
+        "accuracy": 0.9956183057448881,
+        "precision_macro": 0.9960796995561054,
+        "recall_macro": 0.9961210813213466,
+        "f1_macro": 0.9960891558649081,
+        "correct": 2045,
+        "total": 2054,
+        "sample_count": 2054,
+        "mapped_classes": 10,
+        "accuracy_95_ci": [
+          0.99269717624148,
+          0.9980525803310614
+        ],
+        "macro_f1_95_ci": [
+          0.9932867301332584,
+          0.9985172741288998
+        ]
+      },
+      "matched_plantvillage": {
+        "plantdoc": {
+          "sample_count": 1908,
+          "mapped_classes": 9,
+          "accuracy": 0.9952830188679245,
+          "precision_macro": 0.9956441106178949,
+          "recall_macro": 0.9956900903570518,
+          "f1_macro": 0.9956546176276757,
+          "f1_weighted": 0.995284342421006,
+          "accuracy_95_ci": [
+            0.9921383647798742,
+            0.9979035639412998
+          ],
+          "macro_f1_95_ci": [
+            0.992443683093113,
+            0.9983664111715718
+          ]
+        },
+        "plantseg_v7": {
+          "sample_count": 1407,
+          "mapped_classes": 7,
+          "accuracy": 0.9936034115138592,
+          "precision_macro": 0.9943995707944363,
+          "recall_macro": 0.9944586876019237,
+          "f1_macro": 0.9944130798070114,
+          "f1_weighted": 0.9936052063534325,
+          "accuracy_95_ci": [
+            0.9893390191897654,
+            0.9971570717839374
+          ],
+          "macro_f1_95_ci": [
+            0.9904879815151941,
+            0.997797737235414
+          ]
+        }
+      },
+      "external": {
+        "plantdoc": {
+          "model": "MobileNetV3-Small + CLAHE",
+          "model_key": "mobilenet_clahe",
+          "checkpoint": "models\\mobilenet_v3_clahe_best.pth",
+          "dataset": "PlantDoc mapped test split",
+          "preprocessing": {
+            "resize": [
+              224,
+              224
+            ],
+            "normalization": "ImageNet mean/std",
+            "clahe": true,
+            "clahe_clip_limit": 2.0,
+            "clahe_tile_grid_size": [
+              8,
+              8
+            ]
+          },
+          "sample_count": 83,
+          "mapped_classes": [
+            "Apple___Apple_scab",
+            "Corn_(maize)___Common_rust_",
+            "Grape___Black_rot",
+            "Grape___healthy",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight",
+            "Tomato___healthy"
+          ],
+          "metrics": {
+            "accuracy": 0.40963855421686746,
+            "precision_macro": 0.5826384958812802,
+            "recall_macro": 0.399074074074074,
+            "f1_macro": 0.3882995655353379,
+            "f1_weighted": 0.3960716268092113,
+            "correct": 34,
+            "total": 83,
+            "total_inference_seconds": 1.3546200999990106
+          },
+          "per_class": {
+            "Apple___Apple_scab": {
+              "precision": 0.6,
+              "recall": 0.3,
+              "f1-score": 0.4,
+              "support": 10.0
+            },
+            "Corn_(maize)___Common_rust_": {
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1-score": 0.8,
+              "support": 10.0
+            },
+            "Grape___Black_rot": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1-score": 0.6666666666666666,
+              "support": 8.0
+            },
+            "Grape___healthy": {
+              "precision": 1.0,
+              "recall": 0.25,
+              "f1-score": 0.4,
+              "support": 12.0
+            },
+            "Potato___Early_blight": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 8.0
+            },
+            "Potato___Late_blight": {
+              "precision": 1.0,
+              "recall": 0.125,
+              "f1-score": 0.2222222222222222,
+              "support": 8.0
+            },
+            "Tomato___Early_blight": {
+              "precision": 0.3157894736842105,
+              "recall": 0.6666666666666666,
+              "f1-score": 0.42857142857142855,
+              "support": 9.0
+            },
+            "Tomato___Late_blight": {
+              "precision": 0.16129032258064516,
+              "recall": 0.5,
+              "f1-score": 0.24390243902439024,
+              "support": 10.0
+            },
+            "Tomato___healthy": {
+              "precision": 0.5,
+              "recall": 0.25,
+              "f1-score": 0.3333333333333333,
+              "support": 8.0
+            }
+          },
+          "confusion_matrix_labels": [
+            "Apple___Apple_scab",
+            "Apple___Black_rot",
+            "Corn_(maize)___Common_rust_",
+            "Grape___Black_rot",
+            "Grape___healthy",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight",
+            "Tomato___healthy"
+          ],
+          "confusion_matrix": [
+            [
+              3,
+              0,
+              2,
+              0,
+              0,
+              1,
+              0,
+              0,
+              4,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              10,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              1,
+              0,
+              3,
+              0,
+              0,
+              0,
+              7,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              4,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              6,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              6,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4,
+              5,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              3,
+              2
+            ]
+          ],
+          "mean_max_softmax_confidence": 0.8829164242888071,
+          "interpretation_note": "Predictions into any of the model's ten output classes are counted as errors when they differ from the mapped PlantDoc ground truth. Macro metrics average only over mapped ground-truth classes.",
+          "uncertainty": {
+            "accuracy_95_ci": [
+              0.3253012048192771,
+              0.4939759036144578
+            ],
+            "macro_f1_95_ci": [
+              0.28584454080777605,
+              0.4744190667720079
+            ],
+            "resamples": 10000,
+            "method": "Stratified image bootstrap from confusion-matrix counts; outcomes resampled within each observed true class, class supports fixed."
+          }
+        },
+        "plantseg_v7": {
+          "model": "MobileNetV3-Small + CLAHE",
+          "model_key": "mobilenet_clahe",
+          "checkpoint": "models\\mobilenet_v3_clahe_best.pth",
+          "dataset": "PlantSeg v7 mapped test split (CC-BY-NC only)",
+          "preprocessing": {
+            "resize": [
+              224,
+              224
+            ],
+            "normalization": "ImageNet mean/std",
+            "clahe": true,
+            "clahe_clip_limit": 2.0,
+            "clahe_tile_grid_size": [
+              8,
+              8
+            ]
+          },
+          "sample_count": 143,
+          "mapped_classes": [
+            "Apple___Apple_scab",
+            "Apple___Black_rot",
+            "Grape___Black_rot",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight"
+          ],
+          "metrics": {
+            "accuracy": 0.23076923076923078,
+            "precision_macro": 0.28697478991596637,
+            "recall_macro": 0.19185217946827854,
+            "f1_macro": 0.15888666072489602,
+            "f1_weighted": 0.17136619693437877,
+            "correct": 33,
+            "total": 143,
+            "total_inference_seconds": 1.8853915999643505
+          },
+          "per_class": {
+            "Apple___Apple_scab": {
+              "precision": 0.5,
+              "recall": 0.029411764705882353,
+              "f1-score": 0.05555555555555555,
+              "support": 34.0
+            },
+            "Apple___Black_rot": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 12.0
+            },
+            "Grape___Black_rot": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 17.0
+            },
+            "Potato___Early_blight": {
+              "precision": 1.0,
+              "recall": 0.2222222222222222,
+              "f1-score": 0.36363636363636365,
+              "support": 9.0
+            },
+            "Potato___Late_blight": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 18.0
+            },
+            "Tomato___Early_blight": {
+              "precision": 0.3088235294117647,
+              "recall": 0.6176470588235294,
+              "f1-score": 0.4117647058823529,
+              "support": 34.0
+            },
+            "Tomato___Late_blight": {
+              "precision": 0.2,
+              "recall": 0.47368421052631576,
+              "f1-score": 0.28125,
+              "support": 19.0
+            }
+          },
+          "confusion_matrix_labels": [
+            "Apple___Apple_scab",
+            "Apple___Black_rot",
+            "Corn_(maize)___Common_rust_",
+            "Grape___Black_rot",
+            "Grape___healthy",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight",
+            "Tomato___healthy"
+          ],
+          "confusion_matrix": [
+            [
+              1,
+              2,
+              4,
+              0,
+              0,
+              0,
+              1,
+              14,
+              8,
+              4
+            ],
+            [
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              3,
+              4,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              10,
+              2,
+              3
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              1,
+              0,
+              2,
+              0,
+              3,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7,
+              11,
+              0
+            ],
+            [
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              21,
+              9,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              10,
+              9,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "mean_max_softmax_confidence": 0.809029729007841,
+          "interpretation_note": "Predictions into any of the model's ten output classes are counted as errors when they differ from the mapped external ground truth. Macro metrics average only over mapped ground-truth classes.",
+          "uncertainty": {
+            "accuracy_95_ci": [
+              0.17482517482517482,
+              0.2867132867132867
+            ],
+            "macro_f1_95_ci": [
+              0.09473900161514283,
+              0.21467458646030074
+            ],
+            "resamples": 10000,
+            "method": "Stratified image bootstrap from confusion-matrix counts; outcomes resampled within each observed true class, class supports fixed."
+          }
+        }
+      },
+      "domain_gap": {
+        "plantdoc": {
+          "accuracy": 0.585644464651057,
+          "macro_f1": 0.6073550520923379,
+          "accuracy_95_ci": [
+            0.49973478820944156,
+            0.6705059230633226
+          ],
+          "macro_f1_95_ci": [
+            0.5209964811899939,
+            0.709925532064621
+          ],
+          "bootstrap_method": "Independent stratified image bootstrap in PlantVillage and external domains; conditional on each domain's observed class supports."
+        },
+        "plantseg_v7": {
+          "accuracy": 0.7628341807446284,
+          "macro_f1": 0.8355264190821154,
+          "accuracy_95_ci": [
+            0.7083115889086038,
+            0.8159381663113007
+          ],
+          "macro_f1_95_ci": [
+            0.7794480626335215,
+            0.8999519592365417
+          ],
+          "bootstrap_method": "Independent stratified image bootstrap in PlantVillage and external domains; conditional on each domain's observed class supports."
+        }
+      },
+      "resources": {
+        "parameter_count": 1528106,
+        "checkpoint_size_bytes": 18603267,
+        "checkpoint_size_mib": 17.741,
+        "inference_latency_ms_batch1": 7.824138895670573,
+        "latency_trials_ms_batch1": [
+          8.239348347981771,
+          7.361571248372396,
+          7.824138895670573
+        ],
+        "latency_trial_cv": 0.04591554937834407,
+        "latency_method": "Median of three 60-forward batches after eight warmups; CUDA events on GPU or perf_counter on CPU; model forward only, excluding decode and image preprocessing.",
+        "latency_device": "cuda",
+        "approximate_flops_batch1": 110995576,
+        "flops_note": "Profiler-based approximate count; unsupported operators are omitted."
+      },
+      "confidence": {
+        "plantdoc": {
+          "model_name": "MobileNetV3-Small + CLAHE",
+          "sample_count": 83,
+          "correct_count": 34,
+          "incorrect_count": 49,
+          "confidence_is_maximum_softmax_probability_not_calibrated_uncertainty": true,
+          "confidence_by_outcome": {
+            "correct": {
+              "count": 34,
+              "mean": 0.910887624411022,
+              "median": 0.9814323782920837,
+              "quantiles": {
+                "p10": 0.7150194227695466,
+                "p25": 0.836702510714531,
+                "p50": 0.9814323782920837,
+                "p75": 0.9992591440677643,
+                "p90": 0.9999557852745056
+              }
+            },
+            "incorrect": {
+              "count": 49,
+              "mean": 0.8635078364489029,
+              "median": 0.934706449508667,
+              "quantiles": {
+                "p10": 0.6122570037841797,
+                "p25": 0.7742599844932556,
+                "p50": 0.934706449508667,
+                "p75": 0.9930907487869263,
+                "p90": 0.9982417702674866
+              }
+            }
+          },
+          "high_confidence_error_summary": {
+            "threshold": 0.9,
+            "predictions_at_or_above_threshold": 53,
+            "incorrect_at_or_above_threshold": 28,
+            "error_fraction_among_predictions_at_or_above_threshold": 0.5283018867924528,
+            "incorrect_fraction_of_all_predictions": 0.3373493975903614
+          },
+          "highest_confidence_incorrect": [
+            {
+              "image_id": "Apple___Apple_scab/Apple___Apple_scab__plantdoc_0006.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9999595880508423,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0030.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9999463558197021,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0035.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9999445676803589,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Potato___Early_blight/Potato___Early_blight__plantdoc_0024.jpg",
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.9998539686203003,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Tomato___Late_blight/Tomato___Late_blight__plantdoc_0052.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.9997099041938782,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Potato___Early_blight/Potato___Early_blight__plantdoc_0026.jpg",
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9978747367858887,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Grape___healthy/Grape___healthy__plantdoc_0075.jpg",
+              "true_label": "Grape___healthy",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9978516101837158,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Tomato___healthy/Tomato___healthy__plantdoc_0063.jpg",
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9974313378334045,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Grape___healthy/Grape___healthy__plantdoc_0082.jpg",
+              "true_label": "Grape___healthy",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9969825148582458,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Tomato___healthy/Tomato___healthy__plantdoc_0061.jpg",
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.996792733669281,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            }
+          ],
+          "lowest_confidence_correct": [
+            {
+              "image_id": "Apple___Apple_scab/Apple___Apple_scab__plantdoc_0007.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Apple___Apple_scab",
+              "confidence": 0.4670281708240509,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Grape___Black_rot/Grape___Black_rot__plantdoc_0071.jpg",
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Grape___Black_rot",
+              "confidence": 0.6570056676864624,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Apple___Apple_scab/Apple___Apple_scab__plantdoc_0008.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Apple___Apple_scab",
+              "confidence": 0.6703323721885681,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Tomato___Early_blight/Tomato___Early_blight__plantdoc_0039.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.7073599100112915,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Grape___Black_rot/Grape___Black_rot__plantdoc_0068.jpg",
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Grape___Black_rot",
+              "confidence": 0.7328916192054749,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Tomato___healthy/Tomato___healthy__plantdoc_0056.jpg",
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Tomato___healthy",
+              "confidence": 0.7545037269592285,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Tomato___Late_blight/Tomato___Late_blight__plantdoc_0046.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.7620476484298706,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Corn_(maize)___Common_rust_/Corn_(maize)___Common_rust___plantdoc_0013.jpg",
+              "true_label": "Corn_(maize)___Common_rust_",
+              "predicted_label": "Corn_(maize)___Common_rust_",
+              "confidence": 0.7973410487174988,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0029.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Potato___Late_blight",
+              "confidence": 0.804358720779419,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "Tomato___Early_blight/Tomato___Early_blight__plantdoc_0041.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.9337338805198669,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            }
+          ],
+          "most_common_confusion_pairs": [
+            {
+              "true_label": "Grape___healthy",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 7
+            },
+            {
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 6
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 4
+            },
+            {
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 4
+            },
+            {
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 4
+            },
+            {
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 3
+            },
+            {
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 3
+            },
+            {
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 3
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Corn_(maize)___Common_rust_",
+              "count": 2
+            },
+            {
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 2
+            }
+          ],
+          "worst_external_class_by_f1": {
+            "label": "Potato___Early_blight",
+            "f1": 0.0,
+            "support": 8
+          },
+          "per_class_plantvillage_to_external": {
+            "Apple___Apple_scab": {
+              "plantvillage_f1": 0.9960474308300395,
+              "external_f1": 0.4,
+              "f1_change_external_minus_plantvillage": -0.5960474308300395,
+              "f1_degradation_percentage_points": 59.60474308300395,
+              "plantvillage_support": 127,
+              "external_support": 10
+            },
+            "Corn_(maize)___Common_rust_": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.8,
+              "f1_change_external_minus_plantvillage": -0.19999999999999996,
+              "f1_degradation_percentage_points": 19.999999999999996,
+              "plantvillage_support": 217,
+              "external_support": 10
+            },
+            "Grape___Black_rot": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.6666666666666666,
+              "f1_change_external_minus_plantvillage": -0.33333333333333337,
+              "f1_degradation_percentage_points": 33.333333333333336,
+              "plantvillage_support": 168,
+              "external_support": 8
+            },
+            "Grape___healthy": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.4,
+              "f1_change_external_minus_plantvillage": -0.6,
+              "f1_degradation_percentage_points": 60.0,
+              "plantvillage_support": 100,
+              "external_support": 12
+            },
+            "Potato___Early_blight": {
+              "plantvillage_f1": 0.9939024390243902,
+              "external_f1": 0.0,
+              "f1_change_external_minus_plantvillage": -0.9939024390243902,
+              "f1_degradation_percentage_points": 99.39024390243902,
+              "plantvillage_support": 164,
+              "external_support": 8
+            },
+            "Potato___Late_blight": {
+              "plantvillage_f1": 0.9881796690307328,
+              "external_f1": 0.2222222222222222,
+              "f1_change_external_minus_plantvillage": -0.7659574468085106,
+              "f1_degradation_percentage_points": 76.59574468085107,
+              "plantvillage_support": 212,
+              "external_support": 8
+            },
+            "Tomato___Early_blight": {
+              "plantvillage_f1": 0.9907834101382489,
+              "external_f1": 0.42857142857142855,
+              "f1_change_external_minus_plantvillage": -0.5622119815668203,
+              "f1_degradation_percentage_points": 56.22119815668203,
+              "plantvillage_support": 215,
+              "external_support": 9
+            },
+            "Tomato___Late_blight": {
+              "plantvillage_f1": 0.9919786096256684,
+              "external_f1": 0.24390243902439024,
+              "f1_change_external_minus_plantvillage": -0.7480761706012782,
+              "f1_degradation_percentage_points": 74.80761706012782,
+              "plantvillage_support": 375,
+              "external_support": 10
+            },
+            "Tomato___healthy": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.3333333333333333,
+              "f1_change_external_minus_plantvillage": -0.6666666666666667,
+              "f1_degradation_percentage_points": 66.66666666666667,
+              "plantvillage_support": 330,
+              "external_support": 8
+            }
+          }
+        },
+        "plantseg_v7": {
+          "model_name": "MobileNetV3-Small + CLAHE",
+          "sample_count": 143,
+          "correct_count": 33,
+          "incorrect_count": 110,
+          "confidence_is_maximum_softmax_probability_not_calibrated_uncertainty": true,
+          "confidence_by_outcome": {
+            "correct": {
+              "count": 33,
+              "mean": 0.8835401742747335,
+              "median": 0.9933562874794006,
+              "quantiles": {
+                "p10": 0.5970656037330627,
+                "p25": 0.776866614818573,
+                "p50": 0.9933562874794006,
+                "p75": 0.9995750784873962,
+                "p90": 0.9998742341995239
+              }
+            },
+            "incorrect": {
+              "count": 110,
+              "mean": 0.7866765954277732,
+              "median": 0.8378990590572357,
+              "quantiles": {
+                "p10": 0.4516590446233749,
+                "p25": 0.6496265977621078,
+                "p50": 0.8378990590572357,
+                "p75": 0.9850020855665207,
+                "p90": 0.9989804625511169
+              }
+            }
+          },
+          "high_confidence_error_summary": {
+            "threshold": 0.9,
+            "predictions_at_or_above_threshold": 71,
+            "incorrect_at_or_above_threshold": 48,
+            "error_fraction_among_predictions_at_or_above_threshold": 0.676056338028169,
+            "incorrect_fraction_of_all_predictions": 0.3356643356643357
+          },
+          "highest_confidence_incorrect": [
+            {
+              "image_id": "grape_black_rot/grape_black_rot_google_0050.jpg",
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.9999974966049194,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "grape_black_rot/grape_black_rot_google_0320.jpg",
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.9999592304229736,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "potato_late_blight/potato_late_blight_11.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9999051094055176,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "potato_late_blight/potato_late_blight_95.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9998403787612915,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "tomato_late_blight/tomato_late_blight_google_0084.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.9996258020401001,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "grape_black_rot/grape_black_rot_google_0003.jpg",
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.9994840621948242,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "apple_scab/apple_scab_google_0119.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9994242191314697,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_14.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9994218349456787,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "apple_scab/apple_scab_google_0000.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.9992823004722595,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "apple_black_rot/apple_black_rot_google_0077.jpg",
+              "true_label": "Apple___Black_rot",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.9991298317909241,
+              "correct": false,
+              "model": "mobilenet_clahe"
+            }
+          ],
+          "lowest_confidence_correct": [
+            {
+              "image_id": "apple_scab/apple_scab_77.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Apple___Apple_scab",
+              "confidence": 0.4057841897010803,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "tomato_late_blight/tomato_late_blight_google_0217.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.43704190850257874,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_96.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.5548455715179443,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_136.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.583458662033081,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_google_0249.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.6514933705329895,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "tomato_late_blight/tomato_late_blight_google_0080.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.6886594891548157,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_google_0056.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.691083550453186,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "tomato_late_blight/tomato_late_blight_185.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.7329316139221191,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_google_0319.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.776866614818573,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_4.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.7864733338356018,
+              "correct": true,
+              "model": "mobilenet_clahe"
+            }
+          ],
+          "most_common_confusion_pairs": [
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 14
+            },
+            {
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 11
+            },
+            {
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 10
+            },
+            {
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 10
+            },
+            {
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 9
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 8
+            },
+            {
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 7
+            },
+            {
+              "true_label": "Apple___Black_rot",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 4
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Corn_(maize)___Common_rust_",
+              "count": 4
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___healthy",
+              "count": 4
+            }
+          ],
+          "worst_external_class_by_f1": {
+            "label": "Apple___Black_rot",
+            "f1": 0.0,
+            "support": 12
+          },
+          "per_class_plantvillage_to_external": {
+            "Apple___Apple_scab": {
+              "plantvillage_f1": 0.9960474308300395,
+              "external_f1": 0.05555555555555555,
+              "f1_change_external_minus_plantvillage": -0.940491875274484,
+              "f1_degradation_percentage_points": 94.0491875274484,
+              "plantvillage_support": 127,
+              "external_support": 34
+            },
+            "Apple___Black_rot": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.0,
+              "f1_change_external_minus_plantvillage": -1.0,
+              "f1_degradation_percentage_points": 100.0,
+              "plantvillage_support": 146,
+              "external_support": 12
+            },
+            "Grape___Black_rot": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.0,
+              "f1_change_external_minus_plantvillage": -1.0,
+              "f1_degradation_percentage_points": 100.0,
+              "plantvillage_support": 168,
+              "external_support": 17
+            },
+            "Potato___Early_blight": {
+              "plantvillage_f1": 0.9939024390243902,
+              "external_f1": 0.36363636363636365,
+              "f1_change_external_minus_plantvillage": -0.6302660753880266,
+              "f1_degradation_percentage_points": 63.02660753880266,
+              "plantvillage_support": 164,
+              "external_support": 9
+            },
+            "Potato___Late_blight": {
+              "plantvillage_f1": 0.9881796690307328,
+              "external_f1": 0.0,
+              "f1_change_external_minus_plantvillage": -0.9881796690307328,
+              "f1_degradation_percentage_points": 98.81796690307328,
+              "plantvillage_support": 212,
+              "external_support": 18
+            },
+            "Tomato___Early_blight": {
+              "plantvillage_f1": 0.9907834101382489,
+              "external_f1": 0.4117647058823529,
+              "f1_change_external_minus_plantvillage": -0.579018704255896,
+              "f1_degradation_percentage_points": 57.9018704255896,
+              "plantvillage_support": 215,
+              "external_support": 34
+            },
+            "Tomato___Late_blight": {
+              "plantvillage_f1": 0.9919786096256684,
+              "external_f1": 0.28125,
+              "f1_change_external_minus_plantvillage": -0.7107286096256684,
+              "f1_degradation_percentage_points": 71.07286096256684,
+              "plantvillage_support": 375,
+              "external_support": 19
+            }
+          }
+        }
+      }
+    },
+    "deit_tiny": {
+      "model": "DeiT-Tiny",
+      "model_key": "deit_tiny",
+      "plantvillage_full": {
+        "accuracy": 0.9965920155793574,
+        "precision_macro": 0.9974022156668892,
+        "recall_macro": 0.9969228901565014,
+        "f1_macro": 0.9971546442614466,
+        "correct": 2047,
+        "total": 2054,
+        "sample_count": 2054,
+        "mapped_classes": 10,
+        "accuracy_95_ci": [
+          0.9936708860759493,
+          0.9990262901655307
+        ],
+        "macro_f1_95_ci": [
+          0.9948375592878571,
+          0.9991006014501929
+        ]
+      },
+      "matched_plantvillage": {
+        "plantdoc": {
+          "sample_count": 1908,
+          "mapped_classes": 9,
+          "accuracy": 0.9963312368972747,
+          "precision_macro": 0.9971135729632105,
+          "recall_macro": 0.9965809890627794,
+          "f1_macro": 0.9968384936238296,
+          "f1_weighted": 0.9963286137482793,
+          "accuracy_95_ci": [
+            0.9931865828092243,
+            0.9989517819706499
+          ],
+          "macro_f1_95_ci": [
+            0.9942488598473409,
+            0.9990689398460169
+          ]
+        },
+        "plantseg_v7": {
+          "sample_count": 1407,
+          "mapped_classes": 7,
+          "accuracy": 0.9950248756218906,
+          "precision_macro": 0.9962888795241277,
+          "recall_macro": 0.995604128795002,
+          "f1_macro": 0.9959352060877809,
+          "f1_weighted": 0.9950213184305023,
+          "accuracy_95_ci": [
+            0.9907604832977968,
+            0.9985785358919688
+          ],
+          "macro_f1_95_ci": [
+            0.9925715451220154,
+            0.9986630872582087
+          ]
+        }
+      },
+      "external": {
+        "plantdoc": {
+          "model": "DeiT-Tiny",
+          "model_key": "deit_tiny",
+          "checkpoint": "models\\deit_tiny_best.pth",
+          "dataset": "PlantDoc mapped test split",
+          "preprocessing": {
+            "resize": [
+              224,
+              224
+            ],
+            "normalization": "ImageNet mean/std",
+            "clahe": false,
+            "clahe_clip_limit": null,
+            "clahe_tile_grid_size": null
+          },
+          "sample_count": 83,
+          "mapped_classes": [
+            "Apple___Apple_scab",
+            "Corn_(maize)___Common_rust_",
+            "Grape___Black_rot",
+            "Grape___healthy",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight",
+            "Tomato___healthy"
+          ],
+          "metrics": {
+            "accuracy": 0.5060240963855421,
+            "precision_macro": 0.5555897646414888,
+            "recall_macro": 0.4799382716049383,
+            "f1_macro": 0.4615118215118215,
+            "f1_weighted": 0.48653162098945235,
+            "correct": 42,
+            "total": 83,
+            "total_inference_seconds": 1.2952419000212103
+          },
+          "per_class": {
+            "Apple___Apple_scab": {
+              "precision": 0.75,
+              "recall": 0.3,
+              "f1-score": 0.42857142857142855,
+              "support": 10.0
+            },
+            "Corn_(maize)___Common_rust_": {
+              "precision": 0.8333333333333334,
+              "recall": 1.0,
+              "f1-score": 0.9090909090909091,
+              "support": 10.0
+            },
+            "Grape___Black_rot": {
+              "precision": 0.5714285714285714,
+              "recall": 0.5,
+              "f1-score": 0.5333333333333333,
+              "support": 8.0
+            },
+            "Grape___healthy": {
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "f1-score": 0.8,
+              "support": 12.0
+            },
+            "Potato___Early_blight": {
+              "precision": 0.6666666666666666,
+              "recall": 0.25,
+              "f1-score": 0.36363636363636365,
+              "support": 8.0
+            },
+            "Potato___Late_blight": {
+              "precision": 0.5,
+              "recall": 0.125,
+              "f1-score": 0.2,
+              "support": 8.0
+            },
+            "Tomato___Early_blight": {
+              "precision": 0.4375,
+              "recall": 0.7777777777777778,
+              "f1-score": 0.56,
+              "support": 9.0
+            },
+            "Tomato___Late_blight": {
+              "precision": 0.2413793103448276,
+              "recall": 0.7,
+              "f1-score": 0.358974358974359,
+              "support": 10.0
+            },
+            "Tomato___healthy": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 8.0
+            }
+          },
+          "confusion_matrix_labels": [
+            "Apple___Apple_scab",
+            "Apple___Black_rot",
+            "Corn_(maize)___Common_rust_",
+            "Grape___Black_rot",
+            "Grape___healthy",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight",
+            "Tomato___healthy"
+          ],
+          "confusion_matrix": [
+            [
+              3,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              2,
+              4,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              10,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              2,
+              8,
+              0,
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              2,
+              0,
+              1,
+              4,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              2,
+              7,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4,
+              4,
+              0
+            ]
+          ],
+          "mean_max_softmax_confidence": 0.8599941992616079,
+          "interpretation_note": "Predictions into any of the model's ten output classes are counted as errors when they differ from the mapped PlantDoc ground truth. Macro metrics average only over mapped ground-truth classes.",
+          "uncertainty": {
+            "accuracy_95_ci": [
+              0.42168674698795183,
+              0.5903614457831325
+            ],
+            "macro_f1_95_ci": [
+              0.3650573555859869,
+              0.5440267160671571
+            ],
+            "resamples": 10000,
+            "method": "Stratified image bootstrap from confusion-matrix counts; outcomes resampled within each observed true class, class supports fixed."
+          }
+        },
+        "plantseg_v7": {
+          "model": "DeiT-Tiny",
+          "model_key": "deit_tiny",
+          "checkpoint": "models\\deit_tiny_best.pth",
+          "dataset": "PlantSeg v7 mapped test split (CC-BY-NC only)",
+          "preprocessing": {
+            "resize": [
+              224,
+              224
+            ],
+            "normalization": "ImageNet mean/std",
+            "clahe": false,
+            "clahe_clip_limit": null,
+            "clahe_tile_grid_size": null
+          },
+          "sample_count": 143,
+          "mapped_classes": [
+            "Apple___Apple_scab",
+            "Apple___Black_rot",
+            "Grape___Black_rot",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight"
+          ],
+          "metrics": {
+            "accuracy": 0.23076923076923078,
+            "precision_macro": 0.339460730804945,
+            "recall_macro": 0.22192736743820335,
+            "f1_macro": 0.18624854819976772,
+            "f1_weighted": 0.19202759300320277,
+            "correct": 33,
+            "total": 143,
+            "total_inference_seconds": 1.7150645999936387
+          },
+          "per_class": {
+            "Apple___Apple_scab": {
+              "precision": 1.0,
+              "recall": 0.058823529411764705,
+              "f1-score": 0.1111111111111111,
+              "support": 34.0
+            },
+            "Apple___Black_rot": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 12.0
+            },
+            "Grape___Black_rot": {
+              "precision": 0.21052631578947367,
+              "recall": 0.23529411764705882,
+              "f1-score": 0.2222222222222222,
+              "support": 17.0
+            },
+            "Potato___Early_blight": {
+              "precision": 0.6666666666666666,
+              "recall": 0.2222222222222222,
+              "f1-score": 0.3333333333333333,
+              "support": 9.0
+            },
+            "Potato___Late_blight": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 18.0
+            },
+            "Tomato___Early_blight": {
+              "precision": 0.2926829268292683,
+              "recall": 0.35294117647058826,
+              "f1-score": 0.32,
+              "support": 34.0
+            },
+            "Tomato___Late_blight": {
+              "precision": 0.20634920634920634,
+              "recall": 0.6842105263157895,
+              "f1-score": 0.3170731707317073,
+              "support": 19.0
+            }
+          },
+          "confusion_matrix_labels": [
+            "Apple___Apple_scab",
+            "Apple___Black_rot",
+            "Corn_(maize)___Common_rust_",
+            "Grape___Black_rot",
+            "Grape___healthy",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight",
+            "Tomato___healthy"
+          ],
+          "confusion_matrix": [
+            [
+              2,
+              5,
+              2,
+              3,
+              0,
+              0,
+              1,
+              9,
+              11,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              4,
+              6,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              4,
+              0,
+              0,
+              0,
+              6,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              4,
+              0,
+              2,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              2,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              5,
+              0,
+              1,
+              0,
+              12,
+              14,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              6,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "mean_max_softmax_confidence": 0.7620827920370169,
+          "interpretation_note": "Predictions into any of the model's ten output classes are counted as errors when they differ from the mapped external ground truth. Macro metrics average only over mapped ground-truth classes.",
+          "uncertainty": {
+            "accuracy_95_ci": [
+              0.17482517482517482,
+              0.2937062937062937
+            ],
+            "macro_f1_95_ci": [
+              0.11773384741923376,
+              0.24863615472236164
+            ],
+            "resamples": 10000,
+            "method": "Stratified image bootstrap from confusion-matrix counts; outcomes resampled within each observed true class, class supports fixed."
+          }
+        }
+      },
+      "domain_gap": {
+        "plantdoc": {
+          "accuracy": 0.4903071405117325,
+          "macro_f1": 0.535326672112008,
+          "accuracy_95_ci": [
+            0.4059697911141421,
+            0.5746444899093228
+          ],
+          "macro_f1_95_ci": [
+            0.4529966499462235,
+            0.632013200237289
+          ],
+          "bootstrap_method": "Independent stratified image bootstrap in PlantVillage and external domains; conditional on each domain's observed class supports."
+        },
+        "plantseg_v7": {
+          "accuracy": 0.7642556448526598,
+          "macro_f1": 0.8096866578880131,
+          "accuracy_95_ci": [
+            0.7027400460236282,
+            0.8223318969587626
+          ],
+          "macro_f1_95_ci": [
+            0.7473667767577259,
+            0.8776733733403952
+          ],
+          "bootstrap_method": "Independent stratified image bootstrap in PlantVillage and external domains; conditional on each domain's observed class supports."
+        }
+      },
+      "resources": {
+        "parameter_count": 5526346,
+        "checkpoint_size_bytes": 22167777,
+        "checkpoint_size_mib": 21.141,
+        "inference_latency_ms_batch1": 7.896128845214844,
+        "latency_trials_ms_batch1": [
+          7.896128845214844,
+          7.631113688151042,
+          8.110749308268229
+        ],
+        "latency_trial_cv": 0.024896831141964355,
+        "latency_method": "Median of three 60-forward batches after eight warmups; CUDA events on GPU or perf_counter on CPU; model forward only, excluding decode and image preprocessing.",
+        "latency_device": "cuda",
+        "approximate_flops_batch1": 2150268096,
+        "flops_note": "Profiler-based approximate count; unsupported operators are omitted."
+      },
+      "confidence": {
+        "plantdoc": {
+          "model_name": "DeiT-Tiny",
+          "sample_count": 83,
+          "correct_count": 42,
+          "incorrect_count": 41,
+          "confidence_is_maximum_softmax_probability_not_calibrated_uncertainty": true,
+          "confidence_by_outcome": {
+            "correct": {
+              "count": 42,
+              "mean": 0.8873668490421205,
+              "median": 0.9871596992015839,
+              "quantiles": {
+                "p10": 0.5476621091365814,
+                "p25": 0.819157212972641,
+                "p50": 0.9871596992015839,
+                "p75": 0.9960631281137466,
+                "p90": 0.9978982865810394
+              }
+            },
+            "incorrect": {
+              "count": 41,
+              "mean": 0.8319539238766926,
+              "median": 0.9514634609222412,
+              "quantiles": {
+                "p10": 0.5180583596229553,
+                "p25": 0.6769603490829468,
+                "p50": 0.9514634609222412,
+                "p75": 0.9859760403633118,
+                "p90": 0.9958052635192871
+              }
+            }
+          },
+          "high_confidence_error_summary": {
+            "threshold": 0.9,
+            "predictions_at_or_above_threshold": 50,
+            "incorrect_at_or_above_threshold": 22,
+            "error_fraction_among_predictions_at_or_above_threshold": 0.44,
+            "incorrect_fraction_of_all_predictions": 0.26506024096385544
+          },
+          "highest_confidence_incorrect": [
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0030.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9992007613182068,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0031.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9986547231674194,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Tomato___healthy/Tomato___healthy__plantdoc_0058.jpg",
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.9984342455863953,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Apple___Apple_scab/Apple___Apple_scab__plantdoc_0005.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Potato___Early_blight",
+              "confidence": 0.997627317905426,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0036.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9958052635192871,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Grape___healthy/Grape___healthy__plantdoc_0075.jpg",
+              "true_label": "Grape___healthy",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9945825934410095,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0033.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9942172765731812,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0035.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.993344783782959,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Grape___healthy/Grape___healthy__plantdoc_0074.jpg",
+              "true_label": "Grape___healthy",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9928587675094604,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0032.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9918075203895569,
+              "correct": false,
+              "model": "deit_tiny"
+            }
+          ],
+          "lowest_confidence_correct": [
+            {
+              "image_id": "Grape___healthy/Grape___healthy__plantdoc_0077.jpg",
+              "true_label": "Grape___healthy",
+              "predicted_label": "Grape___healthy",
+              "confidence": 0.45594730973243713,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Potato___Early_blight/Potato___Early_blight__plantdoc_0023.jpg",
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Potato___Early_blight",
+              "confidence": 0.5102642774581909,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Apple___Apple_scab/Apple___Apple_scab__plantdoc_0008.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Apple___Apple_scab",
+              "confidence": 0.5191992521286011,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Corn_(maize)___Common_rust_/Corn_(maize)___Common_rust___plantdoc_0014.jpg",
+              "true_label": "Corn_(maize)___Common_rust_",
+              "predicted_label": "Corn_(maize)___Common_rust_",
+              "confidence": 0.5227248668670654,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Tomato___Early_blight/Tomato___Early_blight__plantdoc_0040.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.5440922975540161,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Potato___Early_blight/Potato___Early_blight__plantdoc_0027.jpg",
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Potato___Early_blight",
+              "confidence": 0.5797904133796692,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Tomato___Early_blight/Tomato___Early_blight__plantdoc_0037.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.6911425590515137,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Grape___healthy/Grape___healthy__plantdoc_0082.jpg",
+              "true_label": "Grape___healthy",
+              "predicted_label": "Grape___healthy",
+              "confidence": 0.7762172222137451,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Grape___healthy/Grape___healthy__plantdoc_0073.jpg",
+              "true_label": "Grape___healthy",
+              "predicted_label": "Grape___healthy",
+              "confidence": 0.7769250869750977,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "Tomato___Early_blight/Tomato___Early_blight__plantdoc_0038.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.8146293759346008,
+              "correct": true,
+              "model": "deit_tiny"
+            }
+          ],
+          "most_common_confusion_pairs": [
+            {
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 6
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 4
+            },
+            {
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 4
+            },
+            {
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 4
+            },
+            {
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 4
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 2
+            },
+            {
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Corn_(maize)___Common_rust_",
+              "count": 2
+            },
+            {
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Apple___Black_rot",
+              "count": 2
+            },
+            {
+              "true_label": "Grape___healthy",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 2
+            },
+            {
+              "true_label": "Grape___healthy",
+              "predicted_label": "Grape___Black_rot",
+              "count": 2
+            }
+          ],
+          "worst_external_class_by_f1": {
+            "label": "Tomato___healthy",
+            "f1": 0.0,
+            "support": 8
+          },
+          "per_class_plantvillage_to_external": {
+            "Apple___Apple_scab": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.42857142857142855,
+              "f1_change_external_minus_plantvillage": -0.5714285714285714,
+              "f1_degradation_percentage_points": 57.14285714285714,
+              "plantvillage_support": 127,
+              "external_support": 10
+            },
+            "Corn_(maize)___Common_rust_": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.9090909090909091,
+              "f1_change_external_minus_plantvillage": -0.09090909090909094,
+              "f1_degradation_percentage_points": 9.090909090909093,
+              "plantvillage_support": 217,
+              "external_support": 10
+            },
+            "Grape___Black_rot": {
+              "plantvillage_f1": 0.9970326409495549,
+              "external_f1": 0.5333333333333333,
+              "f1_change_external_minus_plantvillage": -0.4636993076162216,
+              "f1_degradation_percentage_points": 46.36993076162216,
+              "plantvillage_support": 168,
+              "external_support": 8
+            },
+            "Grape___healthy": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.8,
+              "f1_change_external_minus_plantvillage": -0.19999999999999996,
+              "f1_degradation_percentage_points": 19.999999999999996,
+              "plantvillage_support": 100,
+              "external_support": 12
+            },
+            "Potato___Early_blight": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.36363636363636365,
+              "f1_change_external_minus_plantvillage": -0.6363636363636364,
+              "f1_degradation_percentage_points": 63.63636363636363,
+              "plantvillage_support": 164,
+              "external_support": 8
+            },
+            "Potato___Late_blight": {
+              "plantvillage_f1": 0.9881796690307328,
+              "external_f1": 0.2,
+              "f1_change_external_minus_plantvillage": -0.7881796690307328,
+              "f1_degradation_percentage_points": 78.81796690307328,
+              "plantvillage_support": 212,
+              "external_support": 8
+            },
+            "Tomato___Early_blight": {
+              "plantvillage_f1": 0.9929742388758782,
+              "external_f1": 0.56,
+              "f1_change_external_minus_plantvillage": -0.43297423887587816,
+              "f1_degradation_percentage_points": 43.29742388758782,
+              "plantvillage_support": 215,
+              "external_support": 9
+            },
+            "Tomato___Late_blight": {
+              "plantvillage_f1": 0.9933598937583001,
+              "external_f1": 0.358974358974359,
+              "f1_change_external_minus_plantvillage": -0.6343855347839411,
+              "f1_degradation_percentage_points": 63.43855347839411,
+              "plantvillage_support": 375,
+              "external_support": 10
+            },
+            "Tomato___healthy": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.0,
+              "f1_change_external_minus_plantvillage": -1.0,
+              "f1_degradation_percentage_points": 100.0,
+              "plantvillage_support": 330,
+              "external_support": 8
+            }
+          }
+        },
+        "plantseg_v7": {
+          "model_name": "DeiT-Tiny",
+          "sample_count": 143,
+          "correct_count": 33,
+          "incorrect_count": 110,
+          "confidence_is_maximum_softmax_probability_not_calibrated_uncertainty": true,
+          "confidence_by_outcome": {
+            "correct": {
+              "count": 33,
+              "mean": 0.8164862358208859,
+              "median": 0.8794634938240051,
+              "quantiles": {
+                "p10": 0.5465317249298096,
+                "p25": 0.6622149348258972,
+                "p50": 0.8794634938240051,
+                "p75": 0.9792554974555969,
+                "p90": 0.9964686274528504
+              }
+            },
+            "incorrect": {
+              "count": 110,
+              "mean": 0.7457617589018561,
+              "median": 0.7947469651699066,
+              "quantiles": {
+                "p10": 0.43553986549377444,
+                "p25": 0.5903036445379257,
+                "p50": 0.7947469651699066,
+                "p75": 0.9559269696474075,
+                "p90": 0.985659283399582
+              }
+            }
+          },
+          "high_confidence_error_summary": {
+            "threshold": 0.9,
+            "predictions_at_or_above_threshold": 60,
+            "incorrect_at_or_above_threshold": 44,
+            "error_fraction_among_predictions_at_or_above_threshold": 0.7333333333333333,
+            "incorrect_fraction_of_all_predictions": 0.3076923076923077
+          },
+          "highest_confidence_incorrect": [
+            {
+              "image_id": "potato_late_blight/potato_late_blight_11.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9987862706184387,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "potato_late_blight/potato_late_blight_google_0084.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9986397624015808,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "potato_early_blight/potato_early_blight_59.jpg",
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Grape___Black_rot",
+              "confidence": 0.9960214495658875,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "potato_late_blight/potato_late_blight_google_0107.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9954883456230164,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "potato_late_blight/potato_late_blight_43.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9949641227722168,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_62.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Grape___Black_rot",
+              "confidence": 0.9935876131057739,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "apple_scab/apple_scab_google_0023.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Grape___Black_rot",
+              "confidence": 0.9935638308525085,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "potato_late_blight/potato_late_blight_95.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.993253767490387,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "potato_early_blight/potato_early_blight_google_0018.jpg",
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.9890505075454712,
+              "correct": false,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "grape_black_rot/grape_black_rot_23.jpg",
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9876784682273865,
+              "correct": false,
+              "model": "deit_tiny"
+            }
+          ],
+          "lowest_confidence_correct": [
+            {
+              "image_id": "tomato_late_blight/tomato_late_blight_182.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.38417109847068787,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "apple_scab/apple_scab_google_0065.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Apple___Apple_scab",
+              "confidence": 0.44072234630584717,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "tomato_late_blight/tomato_late_blight_google_0045.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.4523468315601349,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "potato_early_blight/potato_early_blight_6.jpg",
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Potato___Early_blight",
+              "confidence": 0.5461393594741821,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "grape_black_rot/grape_black_rot_33.jpg",
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Grape___Black_rot",
+              "confidence": 0.5481011867523193,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "tomato_late_blight/tomato_late_blight_10.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.5902230143547058,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "grape_black_rot/grape_black_rot_3.jpg",
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Grape___Black_rot",
+              "confidence": 0.5922431945800781,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_google_0319.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.6530070304870605,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_google_0177.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.6622149348258972,
+              "correct": true,
+              "model": "deit_tiny"
+            },
+            {
+              "image_id": "apple_scab/apple_scab_23.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Apple___Apple_scab",
+              "confidence": 0.7183330059051514,
+              "correct": true,
+              "model": "deit_tiny"
+            }
+          ],
+          "most_common_confusion_pairs": [
+            {
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 14
+            },
+            {
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 13
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 11
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 9
+            },
+            {
+              "true_label": "Apple___Black_rot",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 6
+            },
+            {
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 6
+            },
+            {
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 6
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Apple___Black_rot",
+              "count": 5
+            },
+            {
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 5
+            },
+            {
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Grape___Black_rot",
+              "count": 5
+            }
+          ],
+          "worst_external_class_by_f1": {
+            "label": "Apple___Black_rot",
+            "f1": 0.0,
+            "support": 12
+          },
+          "per_class_plantvillage_to_external": {
+            "Apple___Apple_scab": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.1111111111111111,
+              "f1_change_external_minus_plantvillage": -0.8888888888888888,
+              "f1_degradation_percentage_points": 88.88888888888889,
+              "plantvillage_support": 127,
+              "external_support": 34
+            },
+            "Apple___Black_rot": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.0,
+              "f1_change_external_minus_plantvillage": -1.0,
+              "f1_degradation_percentage_points": 100.0,
+              "plantvillage_support": 146,
+              "external_support": 12
+            },
+            "Grape___Black_rot": {
+              "plantvillage_f1": 0.9970326409495549,
+              "external_f1": 0.2222222222222222,
+              "f1_change_external_minus_plantvillage": -0.7748104187273327,
+              "f1_degradation_percentage_points": 77.48104187273327,
+              "plantvillage_support": 168,
+              "external_support": 17
+            },
+            "Potato___Early_blight": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.3333333333333333,
+              "f1_change_external_minus_plantvillage": -0.6666666666666667,
+              "f1_degradation_percentage_points": 66.66666666666667,
+              "plantvillage_support": 164,
+              "external_support": 9
+            },
+            "Potato___Late_blight": {
+              "plantvillage_f1": 0.9881796690307328,
+              "external_f1": 0.0,
+              "f1_change_external_minus_plantvillage": -0.9881796690307328,
+              "f1_degradation_percentage_points": 98.81796690307328,
+              "plantvillage_support": 212,
+              "external_support": 18
+            },
+            "Tomato___Early_blight": {
+              "plantvillage_f1": 0.9929742388758782,
+              "external_f1": 0.32,
+              "f1_change_external_minus_plantvillage": -0.6729742388758782,
+              "f1_degradation_percentage_points": 67.29742388758781,
+              "plantvillage_support": 215,
+              "external_support": 34
+            },
+            "Tomato___Late_blight": {
+              "plantvillage_f1": 0.9933598937583001,
+              "external_f1": 0.3170731707317073,
+              "f1_change_external_minus_plantvillage": -0.6762867230265928,
+              "f1_degradation_percentage_points": 67.62867230265928,
+              "plantvillage_support": 375,
+              "external_support": 19
+            }
+          }
+        }
+      }
+    },
+    "hybrid": {
+      "model": "MobileNetV3-Small + DeiT-Tiny Hybrid",
+      "model_key": "hybrid",
+      "plantvillage_full": {
+        "accuracy": 0.9965920155793574,
+        "precision_macro": 0.9981675392670157,
+        "recall_macro": 0.9967178587099605,
+        "f1_macro": 0.9974203401610986,
+        "correct": 2047,
+        "total": 2054,
+        "sample_count": 2054,
+        "mapped_classes": 10,
+        "accuracy_95_ci": [
+          0.9936708860759493,
+          0.9990262901655307
+        ],
+        "macro_f1_95_ci": [
+          0.9952059461793684,
+          0.9992601089039024
+        ]
+      },
+      "matched_plantvillage": {
+        "plantdoc": {
+          "sample_count": 1908,
+          "mapped_classes": 9,
+          "accuracy": 0.9963312368972747,
+          "precision_macro": 0.9979639325189064,
+          "recall_macro": 0.9963531763444006,
+          "f1_macro": 0.9971337112901095,
+          "f1_weighted": 0.9963326930484068,
+          "accuracy_95_ci": [
+            0.9931865828092243,
+            0.9989517819706499
+          ],
+          "macro_f1_95_ci": [
+            0.9946733900448298,
+            0.9991778987821137
+          ]
+        },
+        "plantseg_v7": {
+          "sample_count": 1407,
+          "mapped_classes": 7,
+          "accuracy": 0.9950248756218906,
+          "precision_macro": 0.9973821989528796,
+          "recall_macro": 0.995311226728515,
+          "f1_macro": 0.9963147716587122,
+          "f1_weighted": 0.9950268502745985,
+          "accuracy_95_ci": [
+            0.9907604832977968,
+            0.9985785358919688
+          ],
+          "macro_f1_95_ci": [
+            0.9931530674200567,
+            0.9989430127198605
+          ]
+        }
+      },
+      "external": {
+        "plantdoc": {
+          "model": "MobileNetV3-Small + DeiT-Tiny Hybrid",
+          "model_key": "hybrid",
+          "checkpoint": "models\\hybrid_best.pth",
+          "dataset": "PlantDoc mapped test split",
+          "preprocessing": {
+            "resize": [
+              224,
+              224
+            ],
+            "normalization": "ImageNet mean/std",
+            "clahe": false,
+            "clahe_clip_limit": null,
+            "clahe_tile_grid_size": null
+          },
+          "sample_count": 83,
+          "mapped_classes": [
+            "Apple___Apple_scab",
+            "Corn_(maize)___Common_rust_",
+            "Grape___Black_rot",
+            "Grape___healthy",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight",
+            "Tomato___healthy"
+          ],
+          "metrics": {
+            "accuracy": 0.4939759036144578,
+            "precision_macro": 0.5117845117845118,
+            "recall_macro": 0.46172839506172836,
+            "f1_macro": 0.4238594880538615,
+            "f1_weighted": 0.45316350983315523,
+            "correct": 41,
+            "total": 83,
+            "total_inference_seconds": 1.3149210999836214
+          },
+          "per_class": {
+            "Apple___Apple_scab": {
+              "precision": 1.0,
+              "recall": 0.3,
+              "f1-score": 0.46153846153846156,
+              "support": 10.0
+            },
+            "Corn_(maize)___Common_rust_": {
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1-score": 0.8,
+              "support": 10.0
+            },
+            "Grape___Black_rot": {
+              "precision": 0.3333333333333333,
+              "recall": 0.5,
+              "f1-score": 0.4,
+              "support": 8.0
+            },
+            "Grape___healthy": {
+              "precision": 0.8181818181818182,
+              "recall": 0.75,
+              "f1-score": 0.782608695652174,
+              "support": 12.0
+            },
+            "Potato___Early_blight": {
+              "precision": 0.5,
+              "recall": 0.125,
+              "f1-score": 0.2,
+              "support": 8.0
+            },
+            "Potato___Late_blight": {
+              "precision": 0.5,
+              "recall": 0.125,
+              "f1-score": 0.2,
+              "support": 8.0
+            },
+            "Tomato___Early_blight": {
+              "precision": 0.45454545454545453,
+              "recall": 0.5555555555555556,
+              "f1-score": 0.5,
+              "support": 9.0
+            },
+            "Tomato___Late_blight": {
+              "precision": 0.3333333333333333,
+              "recall": 0.8,
+              "f1-score": 0.47058823529411764,
+              "support": 10.0
+            },
+            "Tomato___healthy": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 8.0
+            }
+          },
+          "confusion_matrix_labels": [
+            "Apple___Apple_scab",
+            "Apple___Black_rot",
+            "Corn_(maize)___Common_rust_",
+            "Grape___Black_rot",
+            "Grape___healthy",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight",
+            "Tomato___healthy"
+          ],
+          "confusion_matrix": [
+            [
+              3,
+              0,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              10,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              3,
+              1,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              9,
+              0,
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              1,
+              0,
+              1,
+              0,
+              2,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              2,
+              0,
+              0,
+              0,
+              5,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              8,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              2,
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ]
+          ],
+          "mean_max_softmax_confidence": 0.8395804705390011,
+          "interpretation_note": "Predictions into any of the model's ten output classes are counted as errors when they differ from the mapped PlantDoc ground truth. Macro metrics average only over mapped ground-truth classes.",
+          "uncertainty": {
+            "accuracy_95_ci": [
+              0.40963855421686746,
+              0.5783132530120482
+            ],
+            "macro_f1_95_ci": [
+              0.3311127340587901,
+              0.508940043656358
+            ],
+            "resamples": 10000,
+            "method": "Stratified image bootstrap from confusion-matrix counts; outcomes resampled within each observed true class, class supports fixed."
+          }
+        },
+        "plantseg_v7": {
+          "model": "MobileNetV3-Small + DeiT-Tiny Hybrid",
+          "model_key": "hybrid",
+          "checkpoint": "models\\hybrid_best.pth",
+          "dataset": "PlantSeg v7 mapped test split (CC-BY-NC only)",
+          "preprocessing": {
+            "resize": [
+              224,
+              224
+            ],
+            "normalization": "ImageNet mean/std",
+            "clahe": false,
+            "clahe_clip_limit": null,
+            "clahe_tile_grid_size": null
+          },
+          "sample_count": 143,
+          "mapped_classes": [
+            "Apple___Apple_scab",
+            "Apple___Black_rot",
+            "Grape___Black_rot",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight"
+          ],
+          "metrics": {
+            "accuracy": 0.2097902097902098,
+            "precision_macro": 0.32307855632676136,
+            "recall_macro": 0.20516978721313084,
+            "f1_macro": 0.15552360590391714,
+            "f1_weighted": 0.1681382941453043,
+            "correct": 30,
+            "total": 143,
+            "total_inference_seconds": 1.7178059999714606
+          },
+          "per_class": {
+            "Apple___Apple_scab": {
+              "precision": 1.0,
+              "recall": 0.029411764705882353,
+              "f1-score": 0.05714285714285714,
+              "support": 34.0
+            },
+            "Apple___Black_rot": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 12.0
+            },
+            "Grape___Black_rot": {
+              "precision": 0.16129032258064516,
+              "recall": 0.29411764705882354,
+              "f1-score": 0.20833333333333334,
+              "support": 17.0
+            },
+            "Potato___Early_blight": {
+              "precision": 0.5,
+              "recall": 0.1111111111111111,
+              "f1-score": 0.18181818181818182,
+              "support": 9.0
+            },
+            "Potato___Late_blight": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 18.0
+            },
+            "Tomato___Early_blight": {
+              "precision": 0.391304347826087,
+              "recall": 0.2647058823529412,
+              "f1-score": 0.3157894736842105,
+              "support": 34.0
+            },
+            "Tomato___Late_blight": {
+              "precision": 0.208955223880597,
+              "recall": 0.7368421052631579,
+              "f1-score": 0.32558139534883723,
+              "support": 19.0
+            }
+          },
+          "confusion_matrix_labels": [
+            "Apple___Apple_scab",
+            "Apple___Black_rot",
+            "Corn_(maize)___Common_rust_",
+            "Grape___Black_rot",
+            "Grape___healthy",
+            "Potato___Early_blight",
+            "Potato___Late_blight",
+            "Tomato___Early_blight",
+            "Tomato___Late_blight",
+            "Tomato___healthy"
+          ],
+          "confusion_matrix": [
+            [
+              1,
+              3,
+              3,
+              7,
+              0,
+              0,
+              1,
+              6,
+              11,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              3,
+              5,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1,
+              5,
+              0,
+              0,
+              0,
+              1,
+              9,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              4,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              4,
+              0,
+              1,
+              0,
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              4,
+              7,
+              0,
+              0,
+              0,
+              9,
+              14,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              3,
+              14,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "mean_max_softmax_confidence": 0.7972389438769201,
+          "interpretation_note": "Predictions into any of the model's ten output classes are counted as errors when they differ from the mapped external ground truth. Macro metrics average only over mapped ground-truth classes.",
+          "uncertainty": {
+            "accuracy_95_ci": [
+              0.15384615384615385,
+              0.26573426573426573
+            ],
+            "macro_f1_95_ci": [
+              0.09969507925190461,
+              0.21449424353666866
+            ],
+            "resamples": 10000,
+            "method": "Stratified image bootstrap from confusion-matrix counts; outcomes resampled within each observed true class, class supports fixed."
+          }
+        }
+      },
+      "domain_gap": {
+        "plantdoc": {
+          "accuracy": 0.5023553332828168,
+          "macro_f1": 0.573274223236248,
+          "accuracy_95_ci": [
+            0.41906620191457655,
+            0.5861685736657322
+          ],
+          "macro_f1_95_ci": [
+            0.4882264305927798,
+            0.6659278206478692
+          ],
+          "bootstrap_method": "Independent stratified image bootstrap in PlantVillage and external domains; conditional on each domain's observed class supports."
+        },
+        "plantseg_v7": {
+          "accuracy": 0.7852346658316808,
+          "macro_f1": 0.8407911657547951,
+          "accuracy_95_ci": [
+            0.7300013419416405,
+            0.8404679897217211
+          ],
+          "macro_f1_95_ci": [
+            0.7817760540776711,
+            0.8966739432604545
+          ],
+          "bootstrap_method": "Independent stratified image bootstrap in PlantVillage and external domains; conditional on each domain's observed class supports."
+        }
+      },
+      "resources": {
+        "parameter_count": 6980586,
+        "checkpoint_size_bytes": 28132099,
+        "checkpoint_size_mib": 26.829,
+        "inference_latency_ms_batch1": 15.740508015950521,
+        "latency_trials_ms_batch1": [
+          15.852401733398438,
+          15.618404134114583,
+          15.740508015950521
+        ],
+        "latency_trial_cv": 0.006072236933780809,
+        "latency_method": "Median of three 60-forward batches after eight warmups; CUDA events on GPU or perf_counter on CPU; model forward only, excluding decode and image preprocessing.",
+        "latency_device": "cuda",
+        "approximate_flops_batch1": 2261113400,
+        "flops_note": "Profiler-based approximate count; unsupported operators are omitted."
+      },
+      "confidence": {
+        "plantdoc": {
+          "model_name": "MobileNetV3-Small + DeiT-Tiny Hybrid",
+          "sample_count": 83,
+          "correct_count": 41,
+          "incorrect_count": 42,
+          "confidence_is_maximum_softmax_probability_not_calibrated_uncertainty": true,
+          "confidence_by_outcome": {
+            "correct": {
+              "count": 41,
+              "mean": 0.8817992617444295,
+              "median": 0.9829319715499878,
+              "quantiles": {
+                "p10": 0.614734411239624,
+                "p25": 0.845676600933075,
+                "p50": 0.9829319715499878,
+                "p75": 0.9958283305168152,
+                "p90": 0.999091386795044
+              }
+            },
+            "incorrect": {
+              "count": 42,
+              "mean": 0.7983668886479878,
+              "median": 0.9005722999572754,
+              "quantiles": {
+                "p10": 0.44230944812297823,
+                "p25": 0.62462218105793,
+                "p50": 0.9005722999572754,
+                "p75": 0.9803583025932312,
+                "p90": 0.990335476398468
+              }
+            }
+          },
+          "high_confidence_error_summary": {
+            "threshold": 0.9,
+            "predictions_at_or_above_threshold": 50,
+            "incorrect_at_or_above_threshold": 21,
+            "error_fraction_among_predictions_at_or_above_threshold": 0.42,
+            "incorrect_fraction_of_all_predictions": 0.25301204819277107
+          },
+          "highest_confidence_incorrect": [
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0036.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9962523579597473,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Tomato___healthy/Tomato___healthy__plantdoc_0056.jpg",
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Grape___healthy",
+              "confidence": 0.9945043921470642,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0035.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9925718903541565,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Tomato___Early_blight/Tomato___Early_blight__plantdoc_0038.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Corn_(maize)___Common_rust_",
+              "confidence": 0.9905035495758057,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Grape___healthy/Grape___healthy__plantdoc_0083.jpg",
+              "true_label": "Grape___healthy",
+              "predicted_label": "Grape___Black_rot",
+              "confidence": 0.9903636574745178,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Tomato___healthy/Tomato___healthy__plantdoc_0058.jpg",
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.9900818467140198,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Potato___Early_blight/Potato___Early_blight__plantdoc_0024.jpg",
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.989245593547821,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0030.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.987613320350647,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Apple___Apple_scab/Apple___Apple_scab__plantdoc_0005.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Potato___Early_blight",
+              "confidence": 0.985783576965332,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Potato___Late_blight/Potato___Late_blight__plantdoc_0032.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9830420017242432,
+              "correct": false,
+              "model": "hybrid"
+            }
+          ],
+          "lowest_confidence_correct": [
+            {
+              "image_id": "Apple___Apple_scab/Apple___Apple_scab__plantdoc_0010.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Apple___Apple_scab",
+              "confidence": 0.34840238094329834,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Tomato___Early_blight/Tomato___Early_blight__plantdoc_0039.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.38421767950057983,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Tomato___Late_blight/Tomato___Late_blight__plantdoc_0054.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.47611838579177856,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Potato___Early_blight/Potato___Early_blight__plantdoc_0023.jpg",
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Potato___Early_blight",
+              "confidence": 0.5294279456138611,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Grape___healthy/Grape___healthy__plantdoc_0080.jpg",
+              "true_label": "Grape___healthy",
+              "predicted_label": "Grape___healthy",
+              "confidence": 0.614734411239624,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Tomato___Late_blight/Tomato___Late_blight__plantdoc_0047.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.630067765712738,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Apple___Apple_scab/Apple___Apple_scab__plantdoc_0007.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Apple___Apple_scab",
+              "confidence": 0.6481953859329224,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Tomato___Late_blight/Tomato___Late_blight__plantdoc_0050.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.7017794251441956,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Tomato___Early_blight/Tomato___Early_blight__plantdoc_0037.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.7638457417488098,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "Tomato___Early_blight/Tomato___Early_blight__plantdoc_0041.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.7850617170333862,
+              "correct": true,
+              "model": "hybrid"
+            }
+          ],
+          "most_common_confusion_pairs": [
+            {
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 6
+            },
+            {
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Apple___Black_rot",
+              "count": 3
+            },
+            {
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 3
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 2
+            },
+            {
+              "true_label": "Grape___healthy",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 2
+            },
+            {
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 2
+            },
+            {
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Grape___Black_rot",
+              "count": 2
+            },
+            {
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Grape___healthy",
+              "count": 2
+            },
+            {
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Grape___Black_rot",
+              "count": 2
+            },
+            {
+              "true_label": "Tomato___healthy",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 2
+            }
+          ],
+          "worst_external_class_by_f1": {
+            "label": "Tomato___healthy",
+            "f1": 0.0,
+            "support": 8
+          },
+          "per_class_plantvillage_to_external": {
+            "Apple___Apple_scab": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.46153846153846156,
+              "f1_change_external_minus_plantvillage": -0.5384615384615384,
+              "f1_degradation_percentage_points": 53.84615384615385,
+              "plantvillage_support": 127,
+              "external_support": 10
+            },
+            "Corn_(maize)___Common_rust_": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.8,
+              "f1_change_external_minus_plantvillage": -0.19999999999999996,
+              "f1_degradation_percentage_points": 19.999999999999996,
+              "plantvillage_support": 217,
+              "external_support": 10
+            },
+            "Grape___Black_rot": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.4,
+              "f1_change_external_minus_plantvillage": -0.6,
+              "f1_degradation_percentage_points": 60.0,
+              "plantvillage_support": 168,
+              "external_support": 8
+            },
+            "Grape___healthy": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.782608695652174,
+              "f1_change_external_minus_plantvillage": -0.21739130434782605,
+              "f1_degradation_percentage_points": 21.739130434782606,
+              "plantvillage_support": 100,
+              "external_support": 12
+            },
+            "Potato___Early_blight": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.2,
+              "f1_change_external_minus_plantvillage": -0.8,
+              "f1_degradation_percentage_points": 80.0,
+              "plantvillage_support": 164,
+              "external_support": 8
+            },
+            "Potato___Late_blight": {
+              "plantvillage_f1": 0.9904761904761905,
+              "external_f1": 0.2,
+              "f1_change_external_minus_plantvillage": -0.7904761904761906,
+              "f1_degradation_percentage_points": 79.04761904761905,
+              "plantvillage_support": 212,
+              "external_support": 8
+            },
+            "Tomato___Early_blight": {
+              "plantvillage_f1": 0.9929742388758782,
+              "external_f1": 0.5,
+              "f1_change_external_minus_plantvillage": -0.4929742388758782,
+              "f1_degradation_percentage_points": 49.29742388758782,
+              "plantvillage_support": 215,
+              "external_support": 9
+            },
+            "Tomato___Late_blight": {
+              "plantvillage_f1": 0.9907529722589168,
+              "external_f1": 0.47058823529411764,
+              "f1_change_external_minus_plantvillage": -0.5201647369647991,
+              "f1_degradation_percentage_points": 52.01647369647991,
+              "plantvillage_support": 375,
+              "external_support": 10
+            },
+            "Tomato___healthy": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.0,
+              "f1_change_external_minus_plantvillage": -1.0,
+              "f1_degradation_percentage_points": 100.0,
+              "plantvillage_support": 330,
+              "external_support": 8
+            }
+          }
+        },
+        "plantseg_v7": {
+          "model_name": "MobileNetV3-Small + DeiT-Tiny Hybrid",
+          "sample_count": 143,
+          "correct_count": 30,
+          "incorrect_count": 113,
+          "confidence_is_maximum_softmax_probability_not_calibrated_uncertainty": true,
+          "confidence_by_outcome": {
+            "correct": {
+              "count": 30,
+              "mean": 0.8268482784430186,
+              "median": 0.8644992411136627,
+              "quantiles": {
+                "p10": 0.5658724904060364,
+                "p25": 0.6984567940235138,
+                "p50": 0.8644992411136627,
+                "p75": 0.9869067072868347,
+                "p90": 0.9901259660720825
+              }
+            },
+            "incorrect": {
+              "count": 113,
+              "mean": 0.789378058593885,
+              "median": 0.8803116083145142,
+              "quantiles": {
+                "p10": 0.447369647026062,
+                "p25": 0.6115061044692993,
+                "p50": 0.8803116083145142,
+                "p75": 0.9599058032035828,
+                "p90": 0.9869279265403748
+              }
+            }
+          },
+          "high_confidence_error_summary": {
+            "threshold": 0.9,
+            "predictions_at_or_above_threshold": 65,
+            "incorrect_at_or_above_threshold": 52,
+            "error_fraction_among_predictions_at_or_above_threshold": 0.8,
+            "incorrect_fraction_of_all_predictions": 0.36363636363636365
+          },
+          "highest_confidence_incorrect": [
+            {
+              "image_id": "apple_scab/apple_scab_google_0018.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Corn_(maize)___Common_rust_",
+              "confidence": 0.9976748824119568,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "potato_late_blight/potato_late_blight_11.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9975385665893555,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "apple_scab/apple_scab_google_0297.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9970937967300415,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "potato_late_blight/potato_late_blight_95.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9969497323036194,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "apple_scab/apple_scab_google_0247.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.9947015047073364,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "potato_late_blight/potato_late_blight_google_0107.jpg",
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9944344162940979,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "potato_early_blight/potato_early_blight_59.jpg",
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Grape___Black_rot",
+              "confidence": 0.9943180680274963,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "potato_early_blight/potato_early_blight_google_0077.jpg",
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.9935271739959717,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_62.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Grape___Black_rot",
+              "confidence": 0.9922297596931458,
+              "correct": false,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_160.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.991125762462616,
+              "correct": false,
+              "model": "hybrid"
+            }
+          ],
+          "lowest_confidence_correct": [
+            {
+              "image_id": "grape_black_rot/grape_black_rot_google_0013.jpg",
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Grape___Black_rot",
+              "confidence": 0.48590514063835144,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "tomato_late_blight/tomato_late_blight_205.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.4921248257160187,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "tomato_late_blight/tomato_late_blight_233.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.5542638897895813,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "tomato_late_blight/tomato_late_blight_google_0118.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.5671623349189758,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_96.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.5677284002304077,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "grape_black_rot/grape_black_rot_3.jpg",
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Grape___Black_rot",
+              "confidence": 0.6141025424003601,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "apple_scab/apple_scab_77.jpg",
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Apple___Apple_scab",
+              "confidence": 0.6740037798881531,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_google_0177.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.6960984468460083,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "tomato_early_blight/tomato_early_blight_google_0319.jpg",
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Early_blight",
+              "confidence": 0.7055318355560303,
+              "correct": true,
+              "model": "hybrid"
+            },
+            {
+              "image_id": "tomato_late_blight/tomato_late_blight_199.jpg",
+              "true_label": "Tomato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "confidence": 0.7864184975624084,
+              "correct": true,
+              "model": "hybrid"
+            }
+          ],
+          "most_common_confusion_pairs": [
+            {
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 14
+            },
+            {
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 13
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 11
+            },
+            {
+              "true_label": "Grape___Black_rot",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 9
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Grape___Black_rot",
+              "count": 7
+            },
+            {
+              "true_label": "Tomato___Early_blight",
+              "predicted_label": "Grape___Black_rot",
+              "count": 7
+            },
+            {
+              "true_label": "Apple___Apple_scab",
+              "predicted_label": "Tomato___Early_blight",
+              "count": 6
+            },
+            {
+              "true_label": "Apple___Black_rot",
+              "predicted_label": "Tomato___Late_blight",
+              "count": 5
+            },
+            {
+              "true_label": "Potato___Early_blight",
+              "predicted_label": "Grape___Black_rot",
+              "count": 4
+            },
+            {
+              "true_label": "Potato___Late_blight",
+              "predicted_label": "Grape___Black_rot",
+              "count": 4
+            }
+          ],
+          "worst_external_class_by_f1": {
+            "label": "Apple___Black_rot",
+            "f1": 0.0,
+            "support": 12
+          },
+          "per_class_plantvillage_to_external": {
+            "Apple___Apple_scab": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.05714285714285714,
+              "f1_change_external_minus_plantvillage": -0.9428571428571428,
+              "f1_degradation_percentage_points": 94.28571428571428,
+              "plantvillage_support": 127,
+              "external_support": 34
+            },
+            "Apple___Black_rot": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.0,
+              "f1_change_external_minus_plantvillage": -1.0,
+              "f1_degradation_percentage_points": 100.0,
+              "plantvillage_support": 146,
+              "external_support": 12
+            },
+            "Grape___Black_rot": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.20833333333333334,
+              "f1_change_external_minus_plantvillage": -0.7916666666666666,
+              "f1_degradation_percentage_points": 79.16666666666666,
+              "plantvillage_support": 168,
+              "external_support": 17
+            },
+            "Potato___Early_blight": {
+              "plantvillage_f1": 1.0,
+              "external_f1": 0.18181818181818182,
+              "f1_change_external_minus_plantvillage": -0.8181818181818181,
+              "f1_degradation_percentage_points": 81.81818181818181,
+              "plantvillage_support": 164,
+              "external_support": 9
+            },
+            "Potato___Late_blight": {
+              "plantvillage_f1": 0.9904761904761905,
+              "external_f1": 0.0,
+              "f1_change_external_minus_plantvillage": -0.9904761904761905,
+              "f1_degradation_percentage_points": 99.04761904761905,
+              "plantvillage_support": 212,
+              "external_support": 18
+            },
+            "Tomato___Early_blight": {
+              "plantvillage_f1": 0.9929742388758782,
+              "external_f1": 0.3157894736842105,
+              "f1_change_external_minus_plantvillage": -0.6771847651916677,
+              "f1_degradation_percentage_points": 67.71847651916677,
+              "plantvillage_support": 215,
+              "external_support": 34
+            },
+            "Tomato___Late_blight": {
+              "plantvillage_f1": 0.9907529722589168,
+              "external_f1": 0.32558139534883723,
+              "f1_change_external_minus_plantvillage": -0.6651715769100796,
+              "f1_degradation_percentage_points": 66.51715769100795,
+              "plantvillage_support": 375,
+              "external_support": 19
+            }
+          }
+        }
+      }
+    }
+  },
+  "paired_comparisons": {
+    "plantdoc": {
+      "sample_count": 83,
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260924,
+      "bootstrap_method": "Image-paired percentile bootstrap, stratified within observed true classes; each replicate preserves class supports and draws the same image indices for every model.",
+      "mcnemar_method": "Exact two-sided McNemar binomial test on discordant paired correctness outcomes; Holm adjustment across the six exploratory pairwise accuracy tests.",
+      "interpretation": "Descriptive comparisons on one small external sample. Bootstrap intervals and tests do not address dataset selection, mapping uncertainty, or generalization to a target population.",
+      "comparisons": [
+        {
+          "model_a": "mobilenet",
+          "model_b": "mobilenet_clahe",
+          "sample_count": 83,
+          "accuracy_difference_a_minus_b": 0.08433734939759036,
+          "accuracy_difference_paired_stratified_bootstrap_95_ci": [
+            0.01204819277108432,
+            0.1566265060240964
+          ],
+          "macro_f1_difference_a_minus_b": 0.0348962590155002,
+          "macro_f1_difference_paired_stratified_bootstrap_95_ci": [
+            -0.03866028497451755,
+            0.11117631936474379
+          ],
+          "mcnemar_exact": {
+            "a_correct_b_wrong": 10,
+            "a_wrong_b_correct": 3,
+            "discordant_pairs": 13,
+            "p_value_two_sided": 0.09228515625,
+            "p_value_holm_adjusted": 0.5537109375
+          }
+        },
+        {
+          "model_a": "mobilenet",
+          "model_b": "deit_tiny",
+          "sample_count": 83,
+          "accuracy_difference_a_minus_b": -0.01204819277108432,
+          "accuracy_difference_paired_stratified_bootstrap_95_ci": [
+            -0.108433734939759,
+            0.08433734939759036
+          ],
+          "macro_f1_difference_a_minus_b": -0.03831599696098342,
+          "macro_f1_difference_paired_stratified_bootstrap_95_ci": [
+            -0.14285222543778253,
+            0.06562966170487723
+          ],
+          "mcnemar_exact": {
+            "a_correct_b_wrong": 8,
+            "a_wrong_b_correct": 9,
+            "discordant_pairs": 17,
+            "p_value_two_sided": 1.0,
+            "p_value_holm_adjusted": 1.0
+          }
+        },
+        {
+          "model_a": "mobilenet",
+          "model_b": "hybrid",
+          "sample_count": 83,
+          "accuracy_difference_a_minus_b": 0.0,
+          "accuracy_difference_paired_stratified_bootstrap_95_ci": [
+            -0.06024096385542177,
+            0.060240963855421714
+          ],
+          "macro_f1_difference_a_minus_b": -0.0006636635030233817,
+          "macro_f1_difference_paired_stratified_bootstrap_95_ci": [
+            -0.07977481746177702,
+            0.07562563086144429
+          ],
+          "mcnemar_exact": {
+            "a_correct_b_wrong": 4,
+            "a_wrong_b_correct": 4,
+            "discordant_pairs": 8,
+            "p_value_two_sided": 1.0,
+            "p_value_holm_adjusted": 1.0
+          }
+        },
+        {
+          "model_a": "mobilenet_clahe",
+          "model_b": "deit_tiny",
+          "sample_count": 83,
+          "accuracy_difference_a_minus_b": -0.09638554216867468,
+          "accuracy_difference_paired_stratified_bootstrap_95_ci": [
+            -0.1927710843373494,
+            0.0
+          ],
+          "macro_f1_difference_a_minus_b": -0.07321225597648362,
+          "macro_f1_difference_paired_stratified_bootstrap_95_ci": [
+            -0.17629248743972395,
+            0.0257472955215681
+          ],
+          "mcnemar_exact": {
+            "a_correct_b_wrong": 6,
+            "a_wrong_b_correct": 14,
+            "discordant_pairs": 20,
+            "p_value_two_sided": 0.11531829833984375,
+            "p_value_holm_adjusted": 0.5765914916992188
+          }
+        },
+        {
+          "model_a": "mobilenet_clahe",
+          "model_b": "hybrid",
+          "sample_count": 83,
+          "accuracy_difference_a_minus_b": -0.08433734939759036,
+          "accuracy_difference_paired_stratified_bootstrap_95_ci": [
+            -0.1686746987951807,
+            0.0
+          ],
+          "macro_f1_difference_a_minus_b": -0.03555992251852358,
+          "macro_f1_difference_paired_stratified_bootstrap_95_ci": [
+            -0.1323385791504363,
+            0.05308905318211562
+          ],
+          "mcnemar_exact": {
+            "a_correct_b_wrong": 5,
+            "a_wrong_b_correct": 12,
+            "discordant_pairs": 17,
+            "p_value_two_sided": 0.143463134765625,
+            "p_value_holm_adjusted": 0.5765914916992188
+          }
+        },
+        {
+          "model_a": "deit_tiny",
+          "model_b": "hybrid",
+          "sample_count": 83,
+          "accuracy_difference_a_minus_b": 0.01204819277108432,
+          "accuracy_difference_paired_stratified_bootstrap_95_ci": [
+            -0.06024096385542166,
+            0.07228915662650609
+          ],
+          "macro_f1_difference_a_minus_b": 0.03765233345796004,
+          "macro_f1_difference_paired_stratified_bootstrap_95_ci": [
+            -0.03576163492858581,
+            0.11218236688413319
+          ],
+          "mcnemar_exact": {
+            "a_correct_b_wrong": 5,
+            "a_wrong_b_correct": 4,
+            "discordant_pairs": 9,
+            "p_value_two_sided": 1.0,
+            "p_value_holm_adjusted": 1.0
+          }
+        }
+      ]
+    },
+    "plantseg_v7": {
+      "sample_count": 143,
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260924,
+      "bootstrap_method": "Image-paired percentile bootstrap, stratified within observed true classes; each replicate preserves class supports and draws the same image indices for every model.",
+      "mcnemar_method": "Exact two-sided McNemar binomial test on discordant paired correctness outcomes; Holm adjustment across the six exploratory pairwise accuracy tests.",
+      "interpretation": "Descriptive comparisons on one small external sample. Bootstrap intervals and tests do not address dataset selection, mapping uncertainty, or generalization to a target population.",
+      "comparisons": [
+        {
+          "model_a": "mobilenet",
+          "model_b": "mobilenet_clahe",
+          "sample_count": 143,
+          "accuracy_difference_a_minus_b": -0.013986013986014012,
+          "accuracy_difference_paired_stratified_bootstrap_95_ci": [
+            -0.06993006993006992,
+            0.04195804195804198
+          ],
+          "macro_f1_difference_a_minus_b": -0.007933401928499978,
+          "macro_f1_difference_paired_stratified_bootstrap_95_ci": [
+            -0.0701546300399849,
+            0.061908887140237644
+          ],
+          "mcnemar_exact": {
+            "a_correct_b_wrong": 10,
+            "a_wrong_b_correct": 12,
+            "discordant_pairs": 22,
+            "p_value_two_sided": 0.8318119049072266,
+            "p_value_holm_adjusted": 1.0
+          }
+        },
+        {
+          "model_a": "mobilenet",
+          "model_b": "deit_tiny",
+          "sample_count": 143,
+          "accuracy_difference_a_minus_b": -0.013986013986014012,
+          "accuracy_difference_paired_stratified_bootstrap_95_ci": [
+            -0.09090909090909091,
+            0.055944055944055965
+          ],
+          "macro_f1_difference_a_minus_b": -0.03529528940337168,
+          "macro_f1_difference_paired_stratified_bootstrap_95_ci": [
+            -0.11020316551476629,
+            0.04306832812409881
+          ],
+          "mcnemar_exact": {
+            "a_correct_b_wrong": 14,
+            "a_wrong_b_correct": 16,
+            "discordant_pairs": 30,
+            "p_value_two_sided": 0.8555355519056321,
+            "p_value_holm_adjusted": 1.0
+          }
+        },
+        {
+          "model_a": "mobilenet",
+          "model_b": "hybrid",
+          "sample_count": 143,
+          "accuracy_difference_a_minus_b": 0.006993006993006978,
+          "accuracy_difference_paired_stratified_bootstrap_95_ci": [
+            -0.06993006993006995,
+            0.08391608391608393
+          ],
+          "macro_f1_difference_a_minus_b": -0.0045703471075211055,
+          "macro_f1_difference_paired_stratified_bootstrap_95_ci": [
+            -0.07645582552539595,
+            0.06636039041686492
+          ],
+          "mcnemar_exact": {
+            "a_correct_b_wrong": 18,
+            "a_wrong_b_correct": 17,
+            "discordant_pairs": 35,
+            "p_value_two_sided": 1.0,
+            "p_value_holm_adjusted": 1.0
+          }
+        },
+        {
+          "model_a": "mobilenet_clahe",
+          "model_b": "deit_tiny",
+          "sample_count": 143,
+          "accuracy_difference_a_minus_b": 0.0,
+          "accuracy_difference_paired_stratified_bootstrap_95_ci": [
+            -0.06293706293706294,
+            0.055944055944055965
+          ],
+          "macro_f1_difference_a_minus_b": -0.0273618874748717,
+          "macro_f1_difference_paired_stratified_bootstrap_95_ci": [
+            -0.10344804182044053,
+            0.0457242138765797
+          ],
+          "mcnemar_exact": {
+            "a_correct_b_wrong": 12,
+            "a_wrong_b_correct": 12,
+            "discordant_pairs": 24,
+            "p_value_two_sided": 1.0,
+            "p_value_holm_adjusted": 1.0
+          }
+        },
+        {
+          "model_a": "mobilenet_clahe",
+          "model_b": "hybrid",
+          "sample_count": 143,
+          "accuracy_difference_a_minus_b": 0.02097902097902099,
+          "accuracy_difference_paired_stratified_bootstrap_95_ci": [
+            -0.04195804195804195,
+            0.0839160839160839
+          ],
+          "macro_f1_difference_a_minus_b": 0.0033630548209788724,
+          "macro_f1_difference_paired_stratified_bootstrap_95_ci": [
+            -0.049549802300621296,
+            0.06003407511226923
+          ],
+          "mcnemar_exact": {
+            "a_correct_b_wrong": 15,
+            "a_wrong_b_correct": 12,
+            "discordant_pairs": 27,
+            "p_value_two_sided": 0.7011080384254456,
+            "p_value_holm_adjusted": 1.0
+          }
+        },
+        {
+          "model_a": "deit_tiny",
+          "model_b": "hybrid",
+          "sample_count": 143,
+          "accuracy_difference_a_minus_b": 0.02097902097902099,
+          "accuracy_difference_paired_stratified_bootstrap_95_ci": [
+            -0.04195804195804198,
+            0.08391608391608393
+          ],
+          "macro_f1_difference_a_minus_b": 0.03072494229585057,
+          "macro_f1_difference_paired_stratified_bootstrap_95_ci": [
+            -0.02754227462905963,
+            0.09387123476367971
+          ],
+          "mcnemar_exact": {
+            "a_correct_b_wrong": 13,
+            "a_wrong_b_correct": 10,
+            "discordant_pairs": 23,
+            "p_value_two_sided": 0.6776394844055176,
+            "p_value_holm_adjusted": 1.0
+          }
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "PlantDoc n=83 across nine mapped classes; PlantSeg n=143 across seven mapped classes, with potato early blight n=9.",
+    "External samples are web-sourced curated subsets, not probability samples of farms.",
+    "PlantSeg's observed images include mixed plant organs and visual graphics; no causal subgroup inference is made.",
+    "Maximum softmax scores are not calibrated uncertainty.",
+    "No new model training or robustness intervention was performed; external test results were kept as evaluation evidence."
+  ]
+}

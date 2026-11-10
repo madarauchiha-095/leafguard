@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sign in | LeafGuard</title>
+  <link rel="stylesheet" href="/assets/app.css">
+  <script defer src="/assets/app.js"></script>
+</head>
+<body class="auth-body">
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">L</span> LeafGuard</a>
+    <nav class="nav"><a href="/insights">Research</a><a href="/register">Create account</a></nav>
+  </header>
+  <main class="auth-layout">
+    <aside class="auth-story">
+      <a class="auth-back" href="/">← &nbsp;Back to LeafGuard</a>
+      <div class="auth-orbit"><div class="orbit-ring"></div><div class="orbit-leaf">✳</div><span class="orbit-dot dot-one"></span><span class="orbit-dot dot-two"></span><span class="orbit-dot dot-three"></span></div>
+      <div class="auth-story-copy">
+        <div class="eyebrow">A CLEARER VIEW OF PLANT HEALTH</div>
+        <h2>Every leaf has a story.<br>Let’s read it carefully.</h2>
+        <p>Compare four vision models, revisit saved predictions, and explore the evidence behind every result.</p>
+        <div class="auth-proof"><span class="proof-icon">✓</span><span><strong>Private by design</strong><br><span class="small">Images are analyzed locally and never saved.</span></span></div>
+      </div>
+    </aside>
+    <section class="auth-form-panel">
+      <div class="auth-form-content">
+        <div class="eyebrow">YOUR RESEARCH WORKSPACE</div>
+        <h1>Welcome back</h1>
+        <p>Sign in to pick up where you left off.</p>
+        <form class="form-card" method="post" data-auth-form="login">
+          <div class="notice" role="status"></div>
+          <div class="field"><label for="username">Username</label><input id="username" name="username" autocomplete="username" required maxlength="40" placeholder="Your username"></div>
+          <div class="field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required maxlength="128" placeholder="Your password"></div>
+          <button class="btn btn-primary auth-submit" type="submit">Sign in <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="auth-switch">New to LeafGuard? <a href="/register">Create a local account</a></p>
+        <p class="small auth-footnote">Your account is stored on this device. This local app is designed for personal research use.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

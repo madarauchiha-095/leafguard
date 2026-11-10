@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Your LeafGuard plant health analysis dashboard and saved results">
+  <title>Dashboard | LeafGuard</title>
+  <link rel="stylesheet" href="/assets/app.css">
+  <script defer src="/assets/app.js"></script>
+</head>
+<body data-page="dashboard">
+  <header class="topbar">
+    <a class="brand" href="/dashboard"><span class="brand-mark">L</span> LeafGuard</a>
+    <nav class="nav">
+      <a class="active" href="/dashboard">Dashboard</a>
+      <a href="/workspace">Analyze</a>
+      <a href="/insights">Research</a>
+      <a href="/security">Integrity</a>
+      <span id="user-name" class="small"></span>
+      <button data-logout>Sign out</button>
+    </nav>
+  </header>
+  <main class="container dashboard">
+    <section class="dashboard-welcome">
+      <div>
+        <div class="eyebrow">YOUR PLANT HEALTH WORKSPACE</div>
+        <h1>Good to see you<span class="welcome-name" id="welcome-name"></span></h1>
+        <p>Your analyses, model comparisons, and saved results in one place.</p>
+      </div>
+      <a class="btn btn-primary" href="/workspace">＋ &nbsp;New analysis</a>
+    </section>
+    <section class="grid grid-4 dashboard-stats" aria-label="Analysis overview">
+      <article class="stat-card"><div class="label">ANALYSIS RUNS</div><div class="value" id="history-run-count">—</div><div class="sub">Saved to this account</div></article>
+      <article class="stat-card"><div class="label">IMAGES ANALYZED</div><div class="value" id="history-image-count">—</div><div class="sub">Across all saved runs</div></article>
+      <article class="stat-card"><div class="label">MODEL AGREEMENT</div><div class="value" id="history-agreement">—</div><div class="sub">Four models matched</div></article>
+      <article class="stat-card"><div class="label">MEAN TOP SCORE</div><div class="value" id="history-confidence">—</div><div class="sub">Not a calibrated probability</div></article>
+    </section>
+    <section class="section history-section">
+      <div class="section-head">
+        <div><div class="eyebrow">YOUR LIBRARY</div><h2>Recent analyses</h2><p>Saved predictions are private to your local account.</p></div>
+        <a class="btn btn-secondary" href="/insights">Explore research</a>
+      </div>
+      <div id="history-status" class="small" role="status">Loading your saved analyses…</div>
+      <div id="history-empty" class="empty-state hidden">
+        <div class="empty-mark">L</div>
+        <h3>Your next discovery starts with a leaf.</h3>
+        <p>Run an image analysis and its model predictions will be saved here for you to revisit.</p>
+        <a class="btn btn-primary" href="/workspace">Start an analysis</a>
+      </div>
+      <div class="table-wrap">
+        <table id="history-table">
+          <thead><tr><th>Analysis</th><th>Date</th><th>Images</th><th>Model agreement</th><th>Mean top score</th><th></th></tr></thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </div>
+      <p class="small privacy-note">For privacy, LeafGuard keeps prediction metadata only. Original uploaded images are not stored, so historical images cannot be re-opened or re-analyzed for visual explanations.</p>
+    </section>
+    <section id="history-detail" class="section history-detail hidden">
+      <div class="section-head">
+        <div><div class="eyebrow">SAVED PREDICTIONS</div><h2 id="history-detail-title">Analysis details</h2><p id="history-detail-subtitle" class="small"></p></div>
+        <div class="actions">
+          <button id="history-export-csv" class="btn btn-secondary">Export this page (CSV)</button>
+          <button id="history-export-json" class="btn btn-secondary">Export this page (JSON)</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table><thead><tr><th>Image</th><th>Model</th><th>Predicted class</th><th>Top score</th><th>Top three</th><th>Latency</th></tr></thead><tbody id="history-detail-body"></tbody></table>
+      </div>
+      <div class="toolbar history-pagination">
+        <span id="history-page-label" class="small"></span>
+        <div class="actions"><button id="history-page-prev" class="btn btn-secondary">Previous</button><button id="history-page-next" class="btn btn-secondary">Next</button></div>
+      </div>
+    </section>
+    <footer class="footer">LeafGuard is a plant disease image-classification research tool, not an agronomic diagnosis system. Scores are not calibrated probabilities.</footer>
+  </main>
+</body>
+</html>

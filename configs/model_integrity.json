@@ -1,0 +1,6 @@
+{
+  "algorithm": "SHA-256",
+  "checkpoint": "models/hybrid_best.pth",
+  "sha256": "116be826ae3ccb601de4a7259ca06ed137c6f413879edc5e9438e9a9f25abb00",
+  "purpose": "Detect accidental or unauthorized checkpoint changes; not a signature."
+}

@@ -1,0 +1,11 @@
+# Discussion
+
+The PlantVillage test split provides an estimate of performance under the image conditions represented by that dataset. High scores on this controlled domain coexist with lower accuracy on the mapped PlantDoc test subset, which differs in backgrounds, lighting, resolution, framing, and source composition.
+
+The four-model comparison describes in-domain performance, external performance, and resource trade-offs. On the 83 mapped PlantDoc images, DeiT-Tiny has the highest accuracy (0.5060) and macro F1 (0.4615). The hybrid's corresponding scores are 0.4940 and 0.4239. Matched-class domain gaps are 0.5024 accuracy and 0.5733 macro F1 for the hybrid, compared with 0.4903 and 0.5353 for DeiT-Tiny. These results do not support improved hybrid robustness on this subset. The CLAHE checkpoint scores 0.4096 accuracy and 0.3883 macro F1 when evaluated with its required CLAHE transform; its matched gaps are 0.5856 and 0.6074. The earlier external evaluation omitted CLAHE and has been preserved as a superseded artifact, not as a valid result. The small, imbalanced external supports limit generalization of this comparison.
+
+Grad-CAM++ maps can indicate which spatial regions influence a selected output score under the attribution method. For the hybrid, the CNN and Transformer maps are computed at different representation levels and then normalized independently; the combined display is useful for qualitative inspection but does not express calibrated branch contribution. It also does not prove that a prediction is causally based on a disease lesion.
+
+The evaluation deliberately excludes unmatched labels rather than mapping distinct diseases to the nearest trained class. The model remains a closed-set ten-class classifier, so images belonging to excluded classes can still receive a confident in-scope prediction. This limits use outside the defined label set.
+
+Future work should obtain an independently verified, sufficiently large field dataset, preserve image provenance and licensing, include expert-reviewed label adjudication, quantify uncertainty, and collect pixel or region annotations before claiming localization performance. Any additional training or threshold selection should use a separate development set rather than the external test data.
