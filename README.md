@@ -119,6 +119,16 @@ py -3.12 -m venv .venv
 
 Then visit `http://127.0.0.1:8000`. The included checkpoints make model inference available without downloading datasets or connecting to PostgreSQL. SQLite is initialized automatically on first startup.
 
+## Tests
+
+After installing the application dependencies, run the lightweight test suite from the project root:
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+The tests cover checkpoint integrity, image preprocessing, SQLite initialization, and the health endpoint. They do not require training or evaluation datasets.
+
 ### Temporary public demo link from your laptop
 
 The existing app serves both its frontend and API from one origin, so a separate Streamlit rewrite or PostgreSQL service is not needed to share a working demo. Streamlit Community Cloud runs the deployed app in Streamlit's hosted environment; it does not keep this Starlette server running on your laptop. Railway's free plan is usage-limited and is not a suitable always-on host for these local model checkpoints. To keep inference on the laptop, use a Cloudflare Quick Tunnel:
